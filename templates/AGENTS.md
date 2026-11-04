@@ -57,12 +57,12 @@ To update a skill, delete its folder in both skill directories and rerun the too
 
 ### Third-party skills
 
-Each is copied unchanged from upstream at a pinned commit, with the upstream repository's `LICENSE` file added to the folder.
+Each is copied from upstream at a pinned commit, with the upstream repository's `LICENSE` file added to the folder, and is unchanged except where the notes below say otherwise.
 
 | Skill | Source and commit | License | Notes |
 | --- | --- | --- | --- |
 | `find-skills` | vercel-labs/skills `7a5e920` | MIT | Searches skills.sh with `npx -y skills@1.7.6 find <query>`. Its step 6 installs globally without confirmation (`npx skills add <package> -g -y`); override it: show the user each candidate's source, install count and stars, install only after their yes, put the skill in both project skill folders, and record its source. |
-| `nature-figure`, `nature-shared` | yuan1z0825/nature-skills `69817e4` | Apache-2.0 | Use the Python route (matplotlib, numpy and PyMuPDF). Keep its saved preference inside the project, not under `~/.config`. Run its audit scripts, but they check layout, not meaning, so a critic still reads the figure. Its collision audit can fail a clean figure when the PDF groups several labels into one text object; confirm against the rendered PNG and record the reconciliation. Codex does not list `nature-shared` at startup; `nature-figure` still reads its files. |
+| `nature-figure`, `nature-shared` | yuan1z0825/nature-skills `69817e4` | Apache-2.0 | Use the Python route (matplotlib, numpy and PyMuPDF). Keep its saved preference inside the project, not under `~/.config`. Run its audit scripts, but they check layout, not meaning, so a critic still reads the figure. Its collision audit can fail a clean figure when the PDF groups several labels into one text object; confirm against the rendered PNG and record the reconciliation. Codex does not list `nature-shared` at startup; `nature-figure` still reads its files. ART leaves out the upstream figures4papers reference examples (CC BY-NC 4.0); `assets/figures4papers/README.md` says where to get them. |
 | `diagram-design` | cathrynlavery/diagram-design `3eb03b8` | MIT | Its PNG export script needs Python Playwright. Without it, capture PNGs with the Playwright MCP browser from a local `http.server`. Use system fonts. |
 | `research-ideation` | evoscientist/evoskills `4889c22` | Apache-2.0 | Use only as one worker in the "Research ideas" routine. Its SKILL.md requires the `paper-navigator` scripts for every search, which are not installed; override that: search with the arXiv tools, skip Step 0 and the evo-memory update, keep refinement and ranking condensed, and stop before user selection and proposal expansion. Never write to `/memory` at the drive root. |
 | `quarto-authoring` | posit-dev/skills `45685aa` | MIT | Needs Quarto on PATH. Render PDF through Typst (bundled with Quarto). Build `references.bib` from arXiv tool metadata or the project's Better BibTeX export, and use the IEEE CSL from citation-style-language/styles. |
@@ -91,4 +91,4 @@ No ideation skill replaces this routine: in blind trials, ideation skills did no
 
 - Worker output goes in `.agent-runs/`, which git ignores. Playwright snapshots in `.playwright-mcp/` are ignored too.
 - Never use em dashes in text, UI or commit messages.
-- Commits use Conventional Commits, `type(scope): message`. Show the message to the user before committing and never add a Co-Authored-By line.
+- Commits use Conventional Commits, `type(scope): message`. Show the message to the user, commit only after they approve it, and never add a Co-Authored-By line.

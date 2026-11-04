@@ -1,6 +1,71 @@
 # ART: Agentic Research Toolkit
 
+![Version 0.1.0](https://img.shields.io/badge/version-0.1.0-1f6f78) ![License: MIT](https://img.shields.io/badge/license-MIT-2f7a3e) ![Clients: Claude Code and Codex](https://img.shields.io/badge/clients-Claude%20Code%20%7C%20Codex-56625f)
+
+**Your AI research team, set up in minutes.**
+
+![How ART works: you ask, a coordinator plans and delegates to workers on Claude Code and Codex, a critic on the other model checks the work, and you get one answer](docs/how-it-works.png)
+
 A project template for giving AI assistants the skills and tools a project needs. Skills describe how to do a task. MCP servers give an assistant access to a browser, academic papers, or web search and extraction.
+
+## What you get
+
+With ART's skills and project rules installed in both, and each client's own delegation tools available, Claude Code and Codex work as one research team that follows a single rulebook. You ask in plain language. A coordinator plans the work, hands the parts to specialist workers on either platform, and sends important results to a critic on the other model before you see them.
+
+### What's inside
+
+- **18 skills**: guides an agent loads when a task needs one, such as how to verify a source, review a draft or make a publication figure. See [Skills](#skills).
+- **3 MCP servers**: connections that give agents real tools: arXiv for papers, Firecrawl for web search and pages, and Playwright for a real browser. Zotero and Semantic Scholar can be added once per machine. See [MCP servers](#mcp-servers).
+- **One rulebook** ([templates/AGENTS.md](templates/AGENTS.md)): the rules both clients follow, covering the coordinator workflow, cross-model critics, figure checks, the idea routine and safety rules.
+- **An installer** ([install.py](install.py)): copies the skills, server settings and rules into a project for Claude Code, Codex or Cursor, and stops instead of overwriting anything you changed.
+
+### The team
+
+![Meet the team: a coordinator, eight core research roles and seven specialists](docs/team.png)
+
+- **Coordinator** (`parent`, `router`): plans the goal, the inputs and what done means, picks the roles, and reports back with a record of who did what.
+- **Core research team**: scout, cartographer, claims, experimenter, dynamics analyst, critic, synthesizer and archivist.
+- **Specialists**: an idea panel (independent idea workers, one of them following `research-ideation`, and a blind scoring critic), a librarian (`zotero-library`), a figure maker (`nature-figure`), a diagrammer (`diagram-design`), a publisher for reports and slides (`quarto-authoring`), a skill scout (`find-skills`) and a committer (`git-commit`).
+
+### How a task runs
+
+1. You ask Claude Code or Codex.
+2. The coordinator plans and delegates, in parallel where the parts are independent.
+3. Workers run on Claude Code, Codex or both.
+4. A critic on the other model returns PASS, REVISE or BLOCKED. Revisions go back to the author and are checked again.
+5. You get one answer: the result, what is still open, and who did what.
+
+Team formats: solo for quick questions, a delegated team by default, cross-model review, the idea panel, and debate teams in which Claude Code teammates challenge each other (available, not yet tested).
+
+### Safety rules
+
+These are instructions in the project rules (`--rules`), plus the Zotero settings described below:
+
+- Agents show you the commit message and commit only after you approve it.
+- With the Zotero setup below, selected tools that delete or edit existing items are blocked in both clients. The rules forbid using the remaining collection tool to remove a paper from a collection, and forbid other destructive actions. Agents can add papers and fill the project's collection.
+- Findings need evidence, and important work is checked by a critic that did not write it. The rules ask for this check; they cannot guarantee that every mistake is caught.
+
+### Tested
+
+Four skill choices were tested head-to-head against two or three alternatives each, with blind critics on the other platform: research ideation, publication figures, paper review and slides. No challenger clearly beat the chosen tools. Both clients passed the same checks in a working project, and on the test machine fresh sessions of each set ART up within minutes from the repository link and a one-line request. The results are in [docs/evidence.md](docs/evidence.md).
+
+### Limits
+
+- You need Python 3.11 or later and Claude Code, Codex or Cursor; the browser server also needs Node.js 20 or later and Microsoft Edge. Zotero and the API keys are optional and set up once per machine. Each project then needs one installer command per client; on the test machine it ran in under a second per client.
+- A Semantic Scholar key starts at one request per second, shared by every agent that uses it.
+- Delegating to Claude Code stops while your Claude usage limit is reached.
+- Debate teams and the Cursor client are available but not yet tested.
+- Tested on Windows 11 so far; macOS and Linux have not been tried yet.
+
+### Status and roadmap
+
+ART is at version 0.1.0, a pre-release: the first release is planned but not yet tagged. It works and is tested, but expect changes. Next on the list: head-to-head trials for literature search, surveys and experiments; testing debate teams and the Cursor client; and new skills, added only after they hold up in trials. Changes are recorded in [CHANGELOG.md](CHANGELOG.md).
+
+### Give this link to your assistant
+
+Open your project in Claude Code or Codex and paste:
+
+> Set up https://github.com/apattichis/agentic-research-toolkit in this project for the client I'm using, with all skills, the arXiv, Firecrawl and Playwright servers, and the project rules. Preview the changes first, preserve existing settings, and tell me which tools you verified.
 
 ## Set up by asking your assistant
 
@@ -55,11 +120,11 @@ The Git commit skill comes from [GitHub's Awesome Copilot collection](https://gi
 
 Find skills comes unchanged from [Vercel Labs' skills repository](https://github.com/vercel-labs/skills/blob/7a5e920bead4b1039a6d6df5d7e1163b7b09423a/skills/find-skills/SKILL.md), with its MIT license included. It searches the open skills ecosystem at [skills.sh](https://skills.sh/) through the `npx skills` CLI. Its final step installs globally without confirmation (`npx skills add <package> -g -y`). In a project, present the candidates with source, install count and stars, install only after the user agrees, and put the skill in the project's skill folders.
 
-The visual and report skills come unchanged from upstream at pinned revisions, each with its repository's license file added. [Nature figure and Nature shared](https://github.com/yuan1z0825/nature-skills/tree/69817e4dad8bfc52fa4e59a9d8355e4264a4d3a7/skills) (Apache-2.0) make publication figures and vector method schematics with layout audits. Nature figure reads files from its sibling Nature shared, so the installer adds Nature shared whenever Nature figure is selected; [skills/dependencies.json](skills/dependencies.json) records this. Its example figures make it about 34 MB, and on Windows the toolkit should be cloned with `git -c core.longpaths=true`. [Diagram design](https://github.com/cathrynlavery/diagram-design/tree/3eb03b8/skills/diagram-design) (MIT) makes editorial architecture, flow and sequence diagrams as HTML and SVG; its PNG export script needs Python Playwright, so a browser screenshot of the page also works. [Quarto authoring](https://github.com/posit-dev/skills/tree/45685aa/quarto/quarto-authoring) (MIT) writes Quarto documents with figures, cross-references and citations; install [Quarto](https://quarto.org/docs/get-started/) to render them, and Quarto's bundled Typst produces PDF without LaTeX.
+The visual and report skills come from upstream at pinned revisions, each with its repository's license file added, and unchanged except as noted below. [Nature figure and Nature shared](https://github.com/yuan1z0825/nature-skills/tree/69817e4dad8bfc52fa4e59a9d8355e4264a4d3a7/skills) (Apache-2.0) make publication figures and vector method schematics with layout audits. Nature figure reads files from its sibling Nature shared, so the installer adds Nature shared whenever Nature figure is selected; [skills/dependencies.json](skills/dependencies.json) records this. ART leaves out the upstream skill's figures4papers reference examples, which are licensed CC BY-NC 4.0; [their folder](skills/visuals/nature-figure/assets/figures4papers/README.md) says where to get them. On Windows, clone the toolkit with `git -c core.longpaths=true`. [Diagram design](https://github.com/cathrynlavery/diagram-design/tree/3eb03b8/skills/diagram-design) (MIT) makes editorial architecture, flow and sequence diagrams as HTML and SVG; its PNG export script needs Python Playwright, so a browser screenshot of the page also works. [Quarto authoring](https://github.com/posit-dev/skills/tree/45685aa/quarto/quarto-authoring) (MIT) writes Quarto documents with figures, cross-references and citations; install [Quarto](https://quarto.org/docs/get-started/) to render them, and Quarto's bundled Typst produces PDF without LaTeX.
 
-[Research ideation](https://github.com/evoscientist/evoskills/tree/4889c22/skills/research-ideation) (Apache-2.0) comes unchanged from evoskills with the repository's license file added. It is meant as one idea worker among several, not a replacement for independent workers and a blind critic: in blind trials its ideas averaged the same as working without a skill but reached higher peaks. Its instructions require evoskills' paper-navigator scripts for every search, which are not included, so tell it to search with the arXiv tools, skip its memory steps, and stop before proposal expansion.
+[Research ideation](https://github.com/evoscientist/evoskills/tree/4889c22/skills/research-ideation) (Apache-2.0) comes unchanged from evoskills with the repository's license file added. It is meant as one idea worker among several, not a replacement for independent workers and a blind critic: in blind trials its ideas averaged about the same as working without a skill (18.56 against 18.33 out of 25, three runs each) but reached higher peaks. Its instructions require evoskills' paper-navigator scripts for every search, which are not included, so tell it to search with the arXiv tools, skip its memory steps, and stop before proposal expansion.
 
-The Zotero library skill files papers into a per-project collection without changing anything already in the library. It needs the [Zotero MCP server](https://github.com/54yyyu/zotero-mcp) (MIT), installed once per machine for the user's account rather than per project. With Zotero 7 or later running and "Allow other applications on this computer to communicate with Zotero" enabled, run the following in PowerShell.
+The Zotero library skill files papers into a per-project collection. It adds papers and collection memberships. It never deletes items, collections, notes or annotations, never edits existing items, and never removes a paper from a collection. It needs the [Zotero MCP server](https://github.com/54yyyu/zotero-mcp) (MIT), installed once per machine for the user's account rather than per project. With Zotero 7 or later running and "Allow other applications on this computer to communicate with Zotero" enabled, run the following in PowerShell.
 
 ```powershell
 py -3.12 -m venv "$env:LOCALAPPDATA\zotero-mcp"
@@ -67,7 +132,7 @@ py -3.12 -m venv "$env:LOCALAPPDATA\zotero-mcp"
 claude mcp add zotero --scope user -e ZOTERO_LOCAL=true -- "$env:LOCALAPPDATA\zotero-mcp\Scripts\zotero-mcp.exe" serve
 ```
 
-For Codex, add a `[mcp_servers.zotero]` entry to `~/.codex/config.toml` with the same command and `args = ["serve"]`, `env_vars = ["ZOTERO_API_KEY", "ZOTERO_LIBRARY_ID"]` and `ZOTERO_LOCAL = "true"` under `[mcp_servers.zotero.env]`. Reading works without a key. Adding papers on Zotero versions before 10 needs a key from zotero.org/settings/keys, stored by the user in the `ZOTERO_API_KEY` and `ZOTERO_LIBRARY_ID` environment variables. Block the tools that delete or change existing content: in Claude Code, deny `mcp__zotero__` plus each of `zotero_delete_item`, `zotero_delete_collection`, `zotero_delete_annotation`, `zotero_merge_duplicates`, `zotero_update_item`, `zotero_update_collection`, `zotero_batch_update`, `zotero_set_item_parent`, `zotero_manage_note`, `zotero_create_annotation`, `zotero_update_annotation`, `zotero_add_item_relation`, `zotero_remove_item_relation` and `zotero_authorize_local_writes` in `~/.claude/settings.json`; in Codex, list the same names in `disabled_tools`. The full install is about 360 MB.
+For Codex, add a `[mcp_servers.zotero]` entry to `~/.codex/config.toml` with the same command and `args = ["serve"]`, `env_vars = ["ZOTERO_API_KEY", "ZOTERO_LIBRARY_ID"]` and `ZOTERO_LOCAL = "true"` under `[mcp_servers.zotero.env]`. Reading works without a key. Adding papers on Zotero versions before 10 needs a key from zotero.org/settings/keys, stored by the user in the `ZOTERO_API_KEY` and `ZOTERO_LIBRARY_ID` environment variables. Block selected tools that delete or change existing content (the `zotero-library` skill also forbids removing collection memberships with `zotero_set_item_collections`, which stays allowed for adding them): in Claude Code, deny `mcp__zotero__` plus each of `zotero_delete_item`, `zotero_delete_collection`, `zotero_delete_annotation`, `zotero_merge_duplicates`, `zotero_update_item`, `zotero_update_collection`, `zotero_batch_update`, `zotero_set_item_parent`, `zotero_manage_note`, `zotero_create_annotation`, `zotero_update_annotation`, `zotero_add_item_relation`, `zotero_remove_item_relation` and `zotero_authorize_local_writes` in `~/.claude/settings.json`; in Codex, list the same names in `disabled_tools`. The full install is about 360 MB.
 
 ## MCP servers
 
@@ -132,3 +197,7 @@ Give the parent coordinator the question and desired outcome. It assigns indepen
 We compared the existing coordinator alone, with Superpowers dispatch, with pstack swarm, and with both on the same two-site task in Claude Code. All four reached 104/125 and rejected the incorrect claim about both sites. The combination made source coverage explicit; one report also confused rows with observations. The default therefore combines independent assignments and coverage reconciliation with a final check of units and claim scope. A missing-source test withheld the unsupported overall estimate. Codex also ran the combination with two scouts and a separate critic. These small trials establish functionality, not a general speed or accuracy advantage.
 
 The coordinator bundles the [Superpowers dispatch guide](skills/research/parent/references/dispatching-parallel-agents/GUIDE.md) and [pstack swarm guide](skills/research/parent/references/swarm/GUIDE.md) as internal references, each with its MIT license. [Superpowers source revision](https://github.com/obra/superpowers/tree/2ce8aa15d05bd57213e6f746f953aafb7ded7a8b/skills/dispatching-parallel-agents) · [pstack source revision](https://github.com/backnotprop/pstack/tree/6c75f4e67546c2ddbf9634734c1e3ebbea34861a/skills/swarm)
+
+## License and trademarks
+
+ART is released under the [MIT License](LICENSE). Third-party skills keep their own licenses, included in each skill folder. Claude Code is a product of Anthropic and Codex is a product of OpenAI; ART is an independent project and is not affiliated with either.
