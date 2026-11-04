@@ -8,6 +8,7 @@ from tempfile import NamedTemporaryFile
 from uuid import uuid4
 import tomllib
 
+VERSION = "0.1.0"
 ROOT = Path(__file__).resolve().parent
 SKILLS = {p.parent.name: p.parent for p in sorted(ROOT.glob("skills/*/*/SKILL.md"))}
 SERVERS = json.loads((ROOT / "mcp/servers.json").read_text())["mcpServers"]
@@ -124,6 +125,7 @@ def install(args, skills, servers, rules=False):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--version", action="version", version=f"ART {VERSION}")
     parser.add_argument("--list", action="store_true")
     parser.add_argument("--client", choices=CLIENTS)
     parser.add_argument("--project", type=Path)
