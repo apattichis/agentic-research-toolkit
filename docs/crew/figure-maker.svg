@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title desc" color="#00a6b4">
+  <title id="title">Figure maker | The ART crew</title>
+  <desc id="desc">Precise artist. Every number on the chart is checked.</desc>
+  <defs><circle id="dot" r="5.1"/></defs>
+  <g id="body" fill="currentColor">
+    <use href="#dot" x="92" y="41"/><use href="#dot" x="104" y="41"/><use href="#dot" x="116" y="41"/><use href="#dot" x="128" y="41"/>
+    <use href="#dot" x="80" y="53"/><use href="#dot" x="92" y="53"/><use href="#dot" x="104" y="53"/><use href="#dot" x="116" y="53"/><use href="#dot" x="128" y="53"/><use href="#dot" x="140" y="53"/>
+    <use href="#dot" x="68" y="65"/><use href="#dot" x="80" y="65"/><use href="#dot" x="92" y="65"/><use href="#dot" x="104" y="65"/><use href="#dot" x="116" y="65"/><use href="#dot" x="128" y="65"/><use href="#dot" x="140" y="65"/><use href="#dot" x="152" y="65"/>
+    <use href="#dot" x="68" y="77"/><use href="#dot" x="80" y="77"/><use href="#dot" x="92" y="77"/><use href="#dot" x="104" y="77"/><use href="#dot" x="116" y="77"/><use href="#dot" x="128" y="77"/><use href="#dot" x="140" y="77"/><use href="#dot" x="152" y="77"/>
+    <use href="#dot" x="56" y="89"/><use href="#dot" x="68" y="89"/><use href="#dot" x="80" y="89"/><use href="#dot" x="92" y="89"/><use href="#dot" x="104" y="89"/><use href="#dot" x="116" y="89"/><use href="#dot" x="128" y="89"/><use href="#dot" x="140" y="89"/><use href="#dot" x="152" y="89"/><use href="#dot" x="164" y="89"/>
+    <use href="#dot" x="56" y="101"/><use href="#dot" x="68" y="101"/><use href="#dot" x="80" y="101"/><use href="#dot" x="92" y="101"/><use href="#dot" x="104" y="101"/><use href="#dot" x="116" y="101"/><use href="#dot" x="128" y="101"/><use href="#dot" x="140" y="101"/><use href="#dot" x="152" y="101"/><use href="#dot" x="164" y="101"/>
+    <use href="#dot" x="56" y="113"/><use href="#dot" x="68" y="113"/><use href="#dot" x="80" y="113"/><use href="#dot" x="92" y="113"/><use href="#dot" x="104" y="113"/><use href="#dot" x="116" y="113"/><use href="#dot" x="128" y="113"/><use href="#dot" x="140" y="113"/><use href="#dot" x="152" y="113"/><use href="#dot" x="164" y="113"/>
+    <use href="#dot" x="56" y="125"/><use href="#dot" x="68" y="125"/><use href="#dot" x="80" y="125"/><use href="#dot" x="92" y="125"/><use href="#dot" x="104" y="125"/><use href="#dot" x="116" y="125"/><use href="#dot" x="128" y="125"/><use href="#dot" x="140" y="125"/><use href="#dot" x="152" y="125"/><use href="#dot" x="164" y="125"/>
+    <use href="#dot" x="56" y="137"/><use href="#dot" x="68" y="137"/><use href="#dot" x="80" y="137"/><use href="#dot" x="92" y="137"/><use href="#dot" x="104" y="137"/><use href="#dot" x="116" y="137"/><use href="#dot" x="128" y="137"/><use href="#dot" x="140" y="137"/><use href="#dot" x="152" y="137"/><use href="#dot" x="164" y="137"/>
+    <use href="#dot" x="56" y="149"/><use href="#dot" x="68" y="149"/><use href="#dot" x="80" y="149"/><use href="#dot" x="92" y="149"/><use href="#dot" x="104" y="149"/><use href="#dot" x="116" y="149"/><use href="#dot" x="128" y="149"/><use href="#dot" x="140" y="149"/><use href="#dot" x="152" y="149"/><use href="#dot" x="164" y="149"/>
+    <use href="#dot" x="56" y="161"/><use href="#dot" x="68" y="161"/><use href="#dot" x="80" y="161"/><use href="#dot" x="92" y="161"/><use href="#dot" x="104" y="161"/><use href="#dot" x="116" y="161"/><use href="#dot" x="128" y="161"/><use href="#dot" x="140" y="161"/><use href="#dot" x="152" y="161"/><use href="#dot" x="164" y="161"/>
+    <use href="#dot" x="68" y="173"/><use href="#dot" x="80" y="173"/><use href="#dot" x="92" y="173"/><use href="#dot" x="104" y="173"/><use href="#dot" x="116" y="173"/><use href="#dot" x="128" y="173"/><use href="#dot" x="140" y="173"/><use href="#dot" x="152" y="173"/>
+    <use href="#dot" x="68" y="185"/><use href="#dot" x="80" y="185"/><use href="#dot" x="92" y="185"/><use href="#dot" x="104" y="185"/><use href="#dot" x="116" y="185"/><use href="#dot" x="128" y="185"/><use href="#dot" x="140" y="185"/><use href="#dot" x="152" y="185"/>
+    <use href="#dot" x="80" y="197"/><use href="#dot" x="92" y="197"/><use href="#dot" x="104" y="197"/><use href="#dot" x="116" y="197"/><use href="#dot" x="128" y="197"/><use href="#dot" x="140" y="197"/>
+  </g>
+  <g id="eyes">
+    <g id="eye-left"><ellipse cx="94" cy="105" rx="13" ry="17" fill="white"/><ellipse cx="96" cy="106" rx="6" ry="7" fill="#18211f"/><circle cx="98" cy="103" r="2" fill="white"/></g>
+    <g id="eye-right"><ellipse cx="130" cy="105" rx="13" ry="17" fill="white"/><ellipse cx="132" cy="106" rx="6" ry="7" fill="#18211f"/><circle cx="134" cy="103" r="2" fill="white"/></g>
+    <path id="brows" d="M84 81 L101 81 M120 81 L137 81" fill="none" stroke="#18211f" stroke-width="3" stroke-linecap="round"/>
+    <path d="M103 138 Q111 141 120 138" fill="none" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path id="mouth" d="M103 138 Q111 141 120 138" fill="none" stroke="#18211f" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g id="prop" fill="none" stroke="#18211f" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="153" y="151" width="78" height="65" rx="8" fill="white"/>
+    <path d="M164 161 V205 H221" stroke-width="2.5"/>
+    <path d="M174 197 V186 M190 197 V177 M206 197 V165" stroke="currentColor" stroke-width="10"/>
+    <path d="M170 169 H177 M172 166 V172" stroke-width="2"/>
+  </g>
+</svg>

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title desc" color="#3a9d5d">
+  <title id="title">Cartographer | The ART crew</title>
+  <desc id="desc">Sees the big picture. Turns a pile of papers into a map.</desc>
+  <defs><circle id="dot" r="5.1"/></defs>
+  <g id="body" fill="currentColor">
+    <use href="#dot" x="80" y="41"/><use href="#dot" x="92" y="41"/><use href="#dot" x="104" y="41"/><use href="#dot" x="116" y="41"/>
+    <use href="#dot" x="68" y="53"/><use href="#dot" x="80" y="53"/><use href="#dot" x="92" y="53"/><use href="#dot" x="104" y="53"/><use href="#dot" x="116" y="53"/><use href="#dot" x="128" y="53"/><use href="#dot" x="140" y="53"/>
+    <use href="#dot" x="56" y="65"/><use href="#dot" x="68" y="65"/><use href="#dot" x="80" y="65"/><use href="#dot" x="92" y="65"/><use href="#dot" x="104" y="65"/><use href="#dot" x="116" y="65"/><use href="#dot" x="128" y="65"/><use href="#dot" x="140" y="65"/><use href="#dot" x="152" y="65"/>
+    <use href="#dot" x="44" y="77"/><use href="#dot" x="56" y="77"/><use href="#dot" x="68" y="77"/><use href="#dot" x="80" y="77"/><use href="#dot" x="92" y="77"/><use href="#dot" x="104" y="77"/><use href="#dot" x="116" y="77"/><use href="#dot" x="128" y="77"/><use href="#dot" x="140" y="77"/><use href="#dot" x="152" y="77"/><use href="#dot" x="164" y="77"/>
+    <use href="#dot" x="44" y="89"/><use href="#dot" x="56" y="89"/><use href="#dot" x="68" y="89"/><use href="#dot" x="80" y="89"/><use href="#dot" x="92" y="89"/><use href="#dot" x="104" y="89"/><use href="#dot" x="116" y="89"/><use href="#dot" x="128" y="89"/><use href="#dot" x="140" y="89"/><use href="#dot" x="152" y="89"/><use href="#dot" x="164" y="89"/>
+    <use href="#dot" x="44" y="101"/><use href="#dot" x="56" y="101"/><use href="#dot" x="68" y="101"/><use href="#dot" x="80" y="101"/><use href="#dot" x="92" y="101"/><use href="#dot" x="104" y="101"/><use href="#dot" x="116" y="101"/><use href="#dot" x="128" y="101"/><use href="#dot" x="140" y="101"/><use href="#dot" x="152" y="101"/><use href="#dot" x="164" y="101"/>
+    <use href="#dot" x="44" y="113"/><use href="#dot" x="56" y="113"/><use href="#dot" x="68" y="113"/><use href="#dot" x="80" y="113"/><use href="#dot" x="92" y="113"/><use href="#dot" x="104" y="113"/><use href="#dot" x="116" y="113"/><use href="#dot" x="128" y="113"/><use href="#dot" x="140" y="113"/><use href="#dot" x="152" y="113"/><use href="#dot" x="164" y="113"/>
+    <use href="#dot" x="44" y="125"/><use href="#dot" x="56" y="125"/><use href="#dot" x="68" y="125"/><use href="#dot" x="80" y="125"/><use href="#dot" x="92" y="125"/><use href="#dot" x="104" y="125"/><use href="#dot" x="116" y="125"/><use href="#dot" x="128" y="125"/><use href="#dot" x="140" y="125"/><use href="#dot" x="152" y="125"/><use href="#dot" x="164" y="125"/><use href="#dot" x="176" y="125"/>
+    <use href="#dot" x="44" y="137"/><use href="#dot" x="56" y="137"/><use href="#dot" x="68" y="137"/><use href="#dot" x="80" y="137"/><use href="#dot" x="92" y="137"/><use href="#dot" x="104" y="137"/><use href="#dot" x="116" y="137"/><use href="#dot" x="128" y="137"/><use href="#dot" x="140" y="137"/><use href="#dot" x="152" y="137"/><use href="#dot" x="164" y="137"/><use href="#dot" x="176" y="137"/>
+    <use href="#dot" x="44" y="149"/><use href="#dot" x="56" y="149"/><use href="#dot" x="68" y="149"/><use href="#dot" x="80" y="149"/><use href="#dot" x="92" y="149"/><use href="#dot" x="104" y="149"/><use href="#dot" x="116" y="149"/><use href="#dot" x="128" y="149"/><use href="#dot" x="140" y="149"/><use href="#dot" x="152" y="149"/><use href="#dot" x="164" y="149"/><use href="#dot" x="176" y="149"/>
+    <use href="#dot" x="56" y="161"/><use href="#dot" x="68" y="161"/><use href="#dot" x="80" y="161"/><use href="#dot" x="92" y="161"/><use href="#dot" x="104" y="161"/><use href="#dot" x="116" y="161"/><use href="#dot" x="128" y="161"/><use href="#dot" x="140" y="161"/><use href="#dot" x="152" y="161"/><use href="#dot" x="164" y="161"/>
+    <use href="#dot" x="56" y="173"/><use href="#dot" x="68" y="173"/><use href="#dot" x="80" y="173"/><use href="#dot" x="92" y="173"/><use href="#dot" x="104" y="173"/><use href="#dot" x="116" y="173"/><use href="#dot" x="128" y="173"/><use href="#dot" x="140" y="173"/><use href="#dot" x="152" y="173"/><use href="#dot" x="164" y="173"/>
+    <use href="#dot" x="68" y="185"/><use href="#dot" x="80" y="185"/><use href="#dot" x="92" y="185"/><use href="#dot" x="104" y="185"/><use href="#dot" x="116" y="185"/><use href="#dot" x="128" y="185"/><use href="#dot" x="140" y="185"/><use href="#dot" x="152" y="185"/>
+    <use href="#dot" x="80" y="197"/><use href="#dot" x="92" y="197"/><use href="#dot" x="104" y="197"/><use href="#dot" x="116" y="197"/><use href="#dot" x="128" y="197"/><use href="#dot" x="140" y="197"/>
+  </g>
+  <g id="eyes">
+    <g id="eye-left"><ellipse cx="87" cy="109" rx="13" ry="17" fill="white"/><ellipse cx="87" cy="110" rx="6" ry="7" fill="#18211f"/><circle cx="89" cy="107" r="2" fill="white"/></g>
+    <g id="eye-right"><ellipse cx="123" cy="109" rx="13" ry="17" fill="white"/><ellipse cx="123" cy="110" rx="6" ry="7" fill="#18211f"/><circle cx="125" cy="107" r="2" fill="white"/></g>
+    <path id="brows" d="M76 86 Q85 82 94 85" fill="none" stroke="#18211f" stroke-width="3" stroke-linecap="round"/>
+    <path d="M96 140 Q108 151 120 140" fill="none" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path id="mouth" d="M96 140 Q108 151 120 140" fill="none" stroke="#18211f" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g id="prop" fill="none" stroke="#18211f" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M155 160 L179 151 L202 160 L226 151 V208 L202 217 L179 208 L155 217 Z" fill="white"/>
+    <path d="M179 151 V208 M202 160 V217"/>
+    <path d="M164 194 Q174 171 186 184 T216 177" stroke="currentColor" stroke-width="4" stroke-dasharray="3 7"/>
+    <circle cx="216" cy="175" r="4" fill="currentColor" stroke="none"/>
+  </g>
+</svg>

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <link rel="icon" href="data:,">
+  <title>Meet the ART crew</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; color: #18211f; background: #f6f7f7; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    main { max-width: 1440px; margin: 0 auto; padding: 56px 52px 32px; }
+    header { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; margin-bottom: 32px; }
+    .eyebrow { display: flex; gap: 12px; align-items: center; font-size: 14px; font-weight: 650; letter-spacing: .13em; text-transform: uppercase; }
+    .mark { display: grid; grid-template-columns: repeat(3, 5px); gap: 3px; }
+    .mark i { width: 5px; height: 5px; background: #1f6f78; border-radius: 50%; }
+    h1 { font-size: 50px; line-height: 1.08; letter-spacing: -.045em; margin: 16px 0 12px; font-weight: 750; }
+    .intro { font-size: 17px; line-height: 1.55; margin: 0; color: #53615c; }
+    .edition { font-size: 14px; font-weight: 600; color: #53615c; text-align: right; white-space: nowrap; padding-bottom: 5px; line-height: 1.7; }
+    .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+    .card { background: white; border: 1px solid #e3e8e6; border-radius: 22px; padding: 17px 22px 23px; position: relative; min-width: 0; }
+    .card.lead { border: 2px solid #1f6f78; padding: 16px 21px 22px; }
+    .card-top { display: flex; align-items: center; justify-content: space-between; height: 20px; }
+    .number { color: #5d6a65; font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums; letter-spacing: .06em; }
+    .swatch { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); }
+    .portrait { height: 203px; display: flex; align-items: center; justify-content: center; margin: 0 -10px 7px; }
+    .portrait img { width: 211px; height: 211px; display: block; }
+    .lead .portrait img { width: 233px; height: 233px; }
+    h2 { font-size: 20px; line-height: 1.2; letter-spacing: -.025em; margin: 0 0 9px; font-weight: 750; }
+    .card p { font-size: 18px; line-height: 1.5; margin: 0; color: #53615c; }
+    footer { display: flex; justify-content: space-between; gap: 20px; margin-top: 24px; padding-top: 18px; border-top: 1px solid #dce3e0; color: #53615c; font-size: 14px; line-height: 1.5; }
+    @media (max-width: 1000px) { main { padding: 32px; } .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } header { display: block; } .edition { display: none; } }
+    @media (max-width: 520px) { main { padding: 28px 18px; } h1 { font-size: 38px; } .grid { grid-template-columns: 1fr; } footer { display: block; } footer span { display: block; margin-bottom: 6px; } }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <div>
+      <div class="eyebrow"><span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>ART: Agentic Research Toolkit</div>
+      <h1>Meet the ART crew</h1>
+      <p class="intro">Sixteen distinct minds. One curious research team.</p>
+    </div>
+    <div class="edition">THE CHARACTER COLLECTION<br>16 roles / one shared purpose</div>
+  </header>
+  <section class="grid" aria-label="The sixteen ART characters">
+    <article class="card lead" style="--accent:#1f6f78">
+      <div class="card-top"><span class="number">01</span><span class="swatch" aria-hidden="true"></span></div>
+      <div class="portrait"><img src="coordinator.svg" width="256" height="256" alt="Coordinator, a friendly dot-matrix character with a job prop."></div>
+      <h2>Coordinator</h2>
+      <p>Calm conductor. Plans the work and keeps everyone on track.</p>
+    </article>
+    <article class="card" style="--accent:#e0a100">
+      <div class="card-top"><span class="number">02</span><span class="swatch" aria-hidden="true"></span></div>
+      <div class="portrait"><img src="scout.svg" width="256" height="256" alt="Scout, a friendly dot-matrix character with a job prop."></div>
+      <h2>Scout</h2>
+      <p>Curious and sceptical. Never trusts a single source.</p>
+    </article>
+    <article class="card" style="--accent:#3a9d5d">
+      <div class="card-top"><span class="number">03</span><span class="swatch" aria-hidden="true"></span></div>
+      <div class="portrait"><img src="cartographer.svg" width="256" height="256" alt="Cartographer, a friendly dot-matrix character with a job prop."></div>
+      <h2>Cartographer</h2>
+      <p>Sees the big picture. Turns a pile of papers into a map.</p>
+    </article>
+    <article class="card" style="--accent:#e8b923">
+      <div class="card-top"><span class="number">04</span><span class="swatch" aria-hidden="true"></span></div>
+      <div class="portrait"><img src="claims.svg" width="256" height="256" alt="Claims, a friendly dot-matrix character with a job prop."></div>
+      <h2>Claims</h2>
+      <p>Sharp thinker. Turns a gap into a testable question.</p>
+    </article>
+    <article class="card" style="--accent:#7b5ea7">
+      <div class="card-top"><span class="number">05</span><span class="swatch" aria-hidden="true"></span></div>
+      <div class="portrait"><img src="experimenter.svg" width="256" height="256" alt="Experimenter, a friendly dot-matrix character with a job prop."></div>
+      <h2>Experimenter</h2>
+      <p>Hands-on tinkerer. Runs the test before believing it.</p>
+    </article>
+    <article class="card" style="--accent:#2f80ed">
+      <div class="card-top"><span class="number">06</span><span class="swatch" aria-hidden="true"></span></div>
+      <div class="portrait"><img src="dynamics-analyst.svg" width="256" height="256" alt="Dynamics analyst, a friendly dot-matrix character with a job prop."></div>
+      <h2>Dynamics analyst</h2>
+      <p>Pattern spotter. Watches how things change over time.</p>
+    </article>
+    <article class="card" style="--accent:#d64545">
+      <div class="card-top"><span class="number">07</span><span class="swatch" aria-hidden="true"></span></div>
+      <div class="portrait"><img src="critic.svg" width="256" height="256" alt="Critic, a friendly dot-matrix character with a job prop."></div>
+      <h2>Critic</h2>
+      <p>Tough but fair. Important work gets a second look.</p>
+    </article>
+    <article class="card" style="--accent:#e86aa6">
+      <div class="card-top"><span class="number">08</span><span class="swatch" aria-hidden="true"></span></div>
+      <div class="portrait"><img src="synthesizer.svg" width="256" height="256" alt="Synthesizer, a friendly dot-matrix character with a job prop."></div>
+      <h2>Synthesizer</h2>
+      <p>The rewriter. Turns feedback into a better draft.</p>
+    </article>
+    <article class="card" style="--accent:#9c6b3f">
+      <div class="card-top"><span class="number">09</span><span class="swatch" aria-hidden="true"></span></div>
+      <div class="portrait"><img src="archivist.svg" width="256" height="256" alt="Archivist, a friendly dot-matrix character with a job prop."></div>
+      <h2>Archivist</h2>
+      <p>Keeps the records. Every finding filed with its evidence.</p>
+    </article>
+    <article class="card" style="--accent:#f2994a">
+      <div class="card-top"><span class="number">10</span><span class="swatch" aria-hidden="true"></span></div>
+      <div class="portrait"><img src="idea-panel.svg" width="256" height="256" alt="Idea panel, a friendly dot-matrix character with a job prop."></div>
+      <h2>Idea panel</h2>
+      <p>Brainstorm squad. Many ideas, scored blind.</p>
+    </article>
+    <article class="card" style="--accent:#2d3a8c">
+      <div class="card-top"><span class="number">11</span><span class="swatch" aria-hidden="true"></span></div>
+      <div class="portrait"><img src="librarian.svg" width="256" height="256" alt="Librarian, a friendly dot-matrix character with a job prop."></div>
+      <h2>Librarian</h2>
+      <p>Knows your library. Adds papers, never deletes yours.</p>
+    </article>
+    <article class="card" style="--accent:#00a6b4">
+      <div class="card-top"><span class="number">12</span><span class="swatch" aria-hidden="true"></span></div>
+      <div class="portrait"><img src="figure-maker.svg" width="256" height="256" alt="Figure maker, a friendly dot-matrix character with a job prop."></div>
+      <h2>Figure maker</h2>
+      <p>Precise artist. Its charts are checked against the data.</p>
+    </article>
+    <article class="card" style="--accent:#5b5fc7">
+      <div class="card-top"><span class="number">13</span><span class="swatch" aria-hidden="true"></span></div>
+      <div class="portrait"><img src="diagrammer.svg" width="256" height="256" alt="Diagrammer, a friendly dot-matrix character with a job prop."></div>
+      <h2>Diagrammer</h2>
+      <p>Draws how everything connects.</p>
+    </article>
+    <article class="card" style="--accent:#f26b5b">
+      <div class="card-top"><span class="number">14</span><span class="swatch" aria-hidden="true"></span></div>
+      <div class="portrait"><img src="publisher.svg" width="256" height="256" alt="Publisher, a friendly dot-matrix character with a job prop."></div>
+      <h2>Publisher</h2>
+      <p>Turns results into reports and slides.</p>
+    </article>
+    <article class="card" style="--accent:#8a9a3b">
+      <div class="card-top"><span class="number">15</span><span class="swatch" aria-hidden="true"></span></div>
+      <div class="portrait"><img src="skill-scout.svg" width="256" height="256" alt="Skill scout, a friendly dot-matrix character with a job prop."></div>
+      <h2>Skill scout</h2>
+      <p>Explorer. Finds new tools worth trying.</p>
+    </article>
+    <article class="card" style="--accent:#4a5568">
+      <div class="card-top"><span class="number">16</span><span class="swatch" aria-hidden="true"></span></div>
+      <div class="portrait"><img src="committer.svg" width="256" height="256" alt="Committer, a friendly dot-matrix character with a job prop."></div>
+      <h2>Committer</h2>
+      <p>Tidy and careful. Commits only with your yes.</p>
+    </article>
+  </section>
+  <footer><span>Built from curiosity. Connected by evidence.</span><span>THE ART CREW &nbsp; / &nbsp; 01-16</span></footer>
+</main>
+</body>
+</html>

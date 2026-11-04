@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title desc" color="#e8b923">
+  <title id="title">Claims | The ART crew</title>
+  <desc id="desc">Sharp thinker. Turns a gap into a testable question.</desc>
+  <defs><circle id="dot" r="5.1"/></defs>
+  <g id="body" fill="currentColor">
+    <use href="#dot" x="92" y="41"/><use href="#dot" x="104" y="41"/><use href="#dot" x="116" y="41"/><use href="#dot" x="128" y="41"/>
+    <use href="#dot" x="68" y="53"/><use href="#dot" x="80" y="53"/><use href="#dot" x="92" y="53"/><use href="#dot" x="104" y="53"/><use href="#dot" x="116" y="53"/><use href="#dot" x="128" y="53"/><use href="#dot" x="140" y="53"/><use href="#dot" x="152" y="53"/>
+    <use href="#dot" x="56" y="65"/><use href="#dot" x="68" y="65"/><use href="#dot" x="80" y="65"/><use href="#dot" x="92" y="65"/><use href="#dot" x="104" y="65"/><use href="#dot" x="116" y="65"/><use href="#dot" x="128" y="65"/><use href="#dot" x="140" y="65"/><use href="#dot" x="152" y="65"/><use href="#dot" x="164" y="65"/>
+    <use href="#dot" x="56" y="77"/><use href="#dot" x="68" y="77"/><use href="#dot" x="80" y="77"/><use href="#dot" x="92" y="77"/><use href="#dot" x="104" y="77"/><use href="#dot" x="116" y="77"/><use href="#dot" x="128" y="77"/><use href="#dot" x="140" y="77"/><use href="#dot" x="152" y="77"/><use href="#dot" x="164" y="77"/>
+    <use href="#dot" x="44" y="89"/><use href="#dot" x="56" y="89"/><use href="#dot" x="68" y="89"/><use href="#dot" x="80" y="89"/><use href="#dot" x="92" y="89"/><use href="#dot" x="104" y="89"/><use href="#dot" x="116" y="89"/><use href="#dot" x="128" y="89"/><use href="#dot" x="140" y="89"/><use href="#dot" x="152" y="89"/><use href="#dot" x="164" y="89"/><use href="#dot" x="176" y="89"/>
+    <use href="#dot" x="44" y="101"/><use href="#dot" x="56" y="101"/><use href="#dot" x="68" y="101"/><use href="#dot" x="80" y="101"/><use href="#dot" x="92" y="101"/><use href="#dot" x="104" y="101"/><use href="#dot" x="116" y="101"/><use href="#dot" x="128" y="101"/><use href="#dot" x="140" y="101"/><use href="#dot" x="152" y="101"/><use href="#dot" x="164" y="101"/><use href="#dot" x="176" y="101"/>
+    <use href="#dot" x="44" y="113"/><use href="#dot" x="56" y="113"/><use href="#dot" x="68" y="113"/><use href="#dot" x="80" y="113"/><use href="#dot" x="92" y="113"/><use href="#dot" x="104" y="113"/><use href="#dot" x="116" y="113"/><use href="#dot" x="128" y="113"/><use href="#dot" x="140" y="113"/><use href="#dot" x="152" y="113"/><use href="#dot" x="164" y="113"/><use href="#dot" x="176" y="113"/>
+    <use href="#dot" x="56" y="125"/><use href="#dot" x="68" y="125"/><use href="#dot" x="80" y="125"/><use href="#dot" x="92" y="125"/><use href="#dot" x="104" y="125"/><use href="#dot" x="116" y="125"/><use href="#dot" x="128" y="125"/><use href="#dot" x="140" y="125"/><use href="#dot" x="152" y="125"/><use href="#dot" x="164" y="125"/>
+    <use href="#dot" x="56" y="137"/><use href="#dot" x="68" y="137"/><use href="#dot" x="80" y="137"/><use href="#dot" x="92" y="137"/><use href="#dot" x="104" y="137"/><use href="#dot" x="116" y="137"/><use href="#dot" x="128" y="137"/><use href="#dot" x="140" y="137"/><use href="#dot" x="152" y="137"/><use href="#dot" x="164" y="137"/>
+    <use href="#dot" x="68" y="149"/><use href="#dot" x="80" y="149"/><use href="#dot" x="92" y="149"/><use href="#dot" x="104" y="149"/><use href="#dot" x="116" y="149"/><use href="#dot" x="128" y="149"/><use href="#dot" x="140" y="149"/><use href="#dot" x="152" y="149"/>
+    <use href="#dot" x="68" y="161"/><use href="#dot" x="80" y="161"/><use href="#dot" x="92" y="161"/><use href="#dot" x="104" y="161"/><use href="#dot" x="116" y="161"/><use href="#dot" x="128" y="161"/><use href="#dot" x="140" y="161"/><use href="#dot" x="152" y="161"/>
+    <use href="#dot" x="68" y="173"/><use href="#dot" x="80" y="173"/><use href="#dot" x="92" y="173"/><use href="#dot" x="104" y="173"/><use href="#dot" x="116" y="173"/><use href="#dot" x="128" y="173"/><use href="#dot" x="140" y="173"/><use href="#dot" x="152" y="173"/>
+    <use href="#dot" x="80" y="185"/><use href="#dot" x="92" y="185"/><use href="#dot" x="104" y="185"/><use href="#dot" x="116" y="185"/><use href="#dot" x="128" y="185"/><use href="#dot" x="140" y="185"/>
+    <use href="#dot" x="92" y="197"/><use href="#dot" x="104" y="197"/><use href="#dot" x="116" y="197"/><use href="#dot" x="128" y="197"/>
+  </g>
+  <g id="eyes">
+    <g id="eye-left"><ellipse cx="89" cy="101" rx="13" ry="17" fill="white"/><ellipse cx="91" cy="98" rx="6" ry="8" fill="#18211f"/><circle cx="93" cy="95" r="2" fill="white"/></g>
+    <g id="eye-right"><ellipse cx="125" cy="99" rx="13" ry="17" fill="white"/><ellipse cx="127" cy="96" rx="6" ry="8" fill="#18211f"/><circle cx="129" cy="93" r="2" fill="white"/></g>
+    <path id="brows" d="M79 77 L95 73 M115 76 Q125 72 134 77" fill="none" stroke="#18211f" stroke-width="3" stroke-linecap="round"/>
+    <path d="M104 134 Q111 129 117 134" fill="none" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path id="mouth" d="M104 134 Q111 129 117 134" fill="none" stroke="#18211f" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g id="prop" fill="none" stroke="#18211f" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M180 178 C179 169 167 167 167 151 A27 27 0 1 1 221 151 C221 167 209 169 208 178 Z" fill="white"/>
+    <path d="M181 178 H207 V191 Q194 200 181 191 Z" fill="currentColor"/>
+    <path d="M182 184 H206 M187 198 H201"/>
+    <path d="M188 143 C188 132 203 134 203 142 C203 148 195 148 195 155" stroke-width="3.5"/>
+    <circle cx="195" cy="162" r="2" fill="#18211f" stroke="none"/>
+    <path d="M194 110 V103 M165 121 L159 115 M223 121 L229 115" stroke="currentColor"/>
+  </g>
+</svg>
