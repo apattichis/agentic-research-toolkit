@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp@0.0.84", "--browser", "msedge", "--headless", "--isolated"]
+    },
+    "arxiv": {
+      "type": "http",
+      "url": "https://arxiv.caseyjhand.com/mcp"
+    },
+    "firecrawl": {
+      "type": "http",
+      "url": "https://mcp.firecrawl.dev/v2/mcp"
+    }
+  }
+}

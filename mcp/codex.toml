@@ -1,0 +1,9 @@
+[mcp_servers.playwright]
+command = "npx"
+args = ["-y", "@playwright/mcp@0.0.84", "--browser", "msedge", "--headless", "--isolated"]
+
+[mcp_servers.arxiv]
+url = "https://arxiv.caseyjhand.com/mcp"
+
+[mcp_servers.firecrawl]
+url = "https://mcp.firecrawl.dev/v2/mcp"

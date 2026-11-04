@@ -1,0 +1,3 @@
+# Using this toolkit
+
+Read README.md for the skill catalogue, dependencies and supported clients. Use toolkit.json in the target project when present. Otherwise select the requested skills and MCPs using the installer flags. Use --all only when the user requests the full collection. Add --rules when the user wants the shared project rules; it copies templates/AGENTS.md (and CLAUDE.md for Claude Code) and refuses to overwrite a different existing file. Preview with --dry-run, install, then verify a real tool call for each selected MCP when the client can run it. Read a skill's SKILL.md when applying it.
