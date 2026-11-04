@@ -18,9 +18,9 @@ A project template for giving AI assistants the skills and tools a project needs
 
 Open your project in Claude Code or Codex and paste:
 
-> Set up https://github.com/apattichis/agentic-research-toolkit in this project for the client I'm using, with all skills, the arXiv, Firecrawl and Playwright servers, and the project rules. Preview the changes first, preserve existing settings, and tell me which tools you verified.
+> Set up https://github.com/apattichis/agentic-research-toolkit in this project for Claude Code and Codex, with all skills, the arXiv, Firecrawl and Playwright servers, and the project rules. Preview the changes first, preserve existing settings, and tell me which tools you verified.
 
-Prefer to run the installer yourself? See [Installation](docs/installation.md).
+Using only one of the two? Name just that one. Prefer to run the installer yourself? See [Installation](docs/installation.md).
 
 ## What you get
 
@@ -29,7 +29,7 @@ With ART's skills and project rules installed in both, and each client's own del
 | Included | What it does |
 | --- | --- |
 | **18 skills** | Guides an agent loads when a task needs one, such as how to verify a source, review a draft or make a publication figure. See [Skills](docs/skills.md). |
-| **3 MCP servers** | Connections that give agents real tools: arXiv for papers, Firecrawl for web search and pages, and Playwright for a real browser. Zotero and Semantic Scholar can be added once per machine. See [MCP servers](docs/mcp-servers.md). |
+| **3 MCP servers** | Connections that give agents real tools: arXiv for papers, Firecrawl for web search and pages, and Playwright for a real browser. See [MCP servers](docs/mcp-servers.md). Zotero can be added once per machine; see [Skills](docs/skills.md). |
 | **One rulebook** | [templates/AGENTS.md](templates/AGENTS.md): the rules both clients follow, covering the coordinator workflow, cross-model critics, figure checks, the idea routine and safety rules. |
 | **An installer** | [install.py](install.py): copies the skills, server settings and rules into a project for Claude Code, Codex or Cursor, and stops instead of overwriting anything you changed. |
 
@@ -44,7 +44,7 @@ With ART's skills and project rules installed in both, and each client's own del
 <table>
 <tr>
 <td align="center" width="25%"><img src="docs/crew/coordinator.png" width="96" alt="Coordinator"><br><b>Coordinator</b><br><sub>Calm conductor. Plans the work and keeps everyone on track.</sub></td>
-<td align="center" width="25%"><img src="docs/crew/scout.png" width="96" alt="Scout"><br><b>Scout</b><br><sub>Curious and sceptical. Never trusts a single source.</sub></td>
+<td align="center" width="25%"><img src="docs/crew/scout.png" width="96" alt="Scout"><br><b>Scout</b><br><sub>Curious and sceptical. Checks every claim against its source.</sub></td>
 <td align="center" width="25%"><img src="docs/crew/cartographer.png" width="96" alt="Cartographer"><br><b>Cartographer</b><br><sub>Sees the big picture. Turns a pile of papers into a map.</sub></td>
 <td align="center" width="25%"><img src="docs/crew/claims.png" width="96" alt="Claims"><br><b>Claims</b><br><sub>Sharp thinker. Turns a gap into a testable question.</sub></td>
 </tr>
@@ -92,14 +92,9 @@ Four skill choices were tested head-to-head against two or three alternatives ea
 
 ## Limits
 
-- **Cross-model review needs both clients.** Claude Code and Codex must both be installed and signed in, each on its own plan. With only one, ART still runs, but the critic is a fresh session of the same model, which is a weaker check.
-- **Usage limits apply on both sides.** While your Claude or Codex usage limit is reached, workers and critics on that client stop, and so do the cross-model checks that need it.
-- **A team uses more than a chat.** Every worker and critic is its own session, so delegated work uses more of your plan than asking one assistant. Quick questions stay solo.
-- **The rules guide, they do not lock.** Apart from the Zotero tool blocks, which the clients' settings enforce, the rulebook is instructions the models are asked to follow.
-- **The evidence is early.** The skill trials used two runs per skill (three for ideation) and one model per side, so they show that no challenger clearly won, not that the chosen tools are the best available. Literature search, surveys, experiments and writing have not been trialled yet.
-- **Hosted tools have their own limits.** The arXiv server is a community-hosted endpoint, and Firecrawl without a key works within daily limits.
-- **Setup.** You need Python 3.11 or later and Claude Code, Codex or Cursor; the browser server also needs Node.js 20 or later and Microsoft Edge. Zotero and API keys are optional and set up once per machine. Each project then needs one installer command per client; on the test machine it ran in under a second per client.
-- **Not everything is tested yet.** Debate teams and the Cursor client are available but untested, and ART has only been tried on Windows 11 so far.
+- **Cross-model review needs both clients.** Claude Code and Codex must both be installed and signed in, each on its own plan. With only one, the cross-model checks cannot run.
+- **A team uses more of your plan.** Every worker and critic is its own session, and work on a client stops while its usage limit is reached.
+- **Early release.** Tested on Windows 11 only; debate teams and the Cursor client are not tested yet.
 
 ## Status and roadmap
 

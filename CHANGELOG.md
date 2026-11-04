@@ -9,5 +9,6 @@ ART follows [semantic versioning](https://semver.org/). While it is early, versi
 - An optional project rulebook (`--rules`): coordinator workflow, workers and critics on both Claude Code and Codex, figure checks, the research-idea routine, and Zotero and Semantic Scholar rules.
 - An installer that copies skills, server settings and rules, adds required companion skills automatically, stops instead of overwriting existing changes, and reports its version with `--version`.
 - Setup notes for the Zotero MCP server, including manual deny lists that block selected tools which delete or edit existing items in both clients. The rules forbid removing collection memberships and other destructive actions; adding papers and collection memberships stays allowed.
+- A README overview with figures and the crew, and guides for installation, skills, MCP servers and workflows.
 - Evidence from head-to-head skill trials, installs from the link in both clients, and a two-client check in a working project (docs/evidence.md).
 - The nature-figure skill ships without its upstream figures4papers reference examples (CC BY-NC 4.0); a note in their folder says where to get them.

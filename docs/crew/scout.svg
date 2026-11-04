@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title desc" color="#e0a100">
   <title id="title">Scout | The ART crew</title>
-  <desc id="desc">Curious and sceptical. Never trusts a single source.</desc>
+  <desc id="desc">Curious and sceptical. Checks every claim against its source.</desc>
   <defs><circle id="dot" r="5.1"/></defs>
   <g id="body" fill="currentColor">
     <use href="#dot" x="116" y="41"/><use href="#dot" x="128" y="41"/><use href="#dot" x="140" y="41"/>

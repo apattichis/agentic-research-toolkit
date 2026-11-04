@@ -16,7 +16,7 @@ Use **Use this template** on GitHub to create a repository with the catalogue an
 
 Copy [toolkit.example.json](../toolkit.example.json) to `toolkit.json` in your project. Edit its two lists to select the skills and servers you want. An empty list skips that category. The string `"*"` selects everything in a category. Commit the selection file to reuse it across clients.
 
-From the toolkit folder, run the installer with Python 3.11 or later. Use an existing project path, or `.` when working inside a project created from this template.
+From the toolkit folder, run the installer with Python 3.11 or later. Use an existing project path, or `.` when working inside a project created from this template. For an existing project, give the profile's full path too, for example `--project "/path/to/project" --profile "/path/to/project/toolkit.json"`, because the installer reads the profile from the folder you run it in.
 
 ```sh
 python install.py --list
