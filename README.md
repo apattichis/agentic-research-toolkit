@@ -92,11 +92,14 @@ Four skill choices were tested head-to-head against two or three alternatives ea
 
 ## Limits
 
-- You need Python 3.11 or later and Claude Code, Codex or Cursor; the browser server also needs Node.js 20 or later and Microsoft Edge. Zotero and the API keys are optional and set up once per machine. Each project then needs one installer command per client; on the test machine it ran in under a second per client.
-- A Semantic Scholar key starts at one request per second, shared by every agent that uses it.
-- Delegating to Claude Code stops while your Claude usage limit is reached.
-- Debate teams and the Cursor client are available but not yet tested.
-- Tested on Windows 11 so far; macOS and Linux have not been tried yet.
+- **Cross-model review needs both clients.** Claude Code and Codex must both be installed and signed in, each on its own plan. With only one, ART still runs, but the critic is a fresh session of the same model, which is a weaker check.
+- **Usage limits apply on both sides.** While your Claude or Codex usage limit is reached, workers and critics on that client stop, and so do the cross-model checks that need it.
+- **A team uses more than a chat.** Every worker and critic is its own session, so delegated work uses more of your plan than asking one assistant. Quick questions stay solo.
+- **The rules guide, they do not lock.** Apart from the Zotero tool blocks, which the clients' settings enforce, the rulebook is instructions the models are asked to follow.
+- **The evidence is early.** The skill trials used two runs per skill (three for ideation) and one model per side, so they show that no challenger clearly won, not that the chosen tools are the best available. Literature search, surveys, experiments and writing have not been trialled yet.
+- **Hosted tools have their own limits.** The arXiv server is a community-hosted endpoint, and Firecrawl without a key works within daily limits.
+- **Setup.** You need Python 3.11 or later and Claude Code, Codex or Cursor; the browser server also needs Node.js 20 or later and Microsoft Edge. Zotero and API keys are optional and set up once per machine. Each project then needs one installer command per client; on the test machine it ran in under a second per client.
+- **Not everything is tested yet.** Debate teams and the Cursor client are available but untested, and ART has only been tried on Windows 11 so far.
 
 ## Status and roadmap
 
