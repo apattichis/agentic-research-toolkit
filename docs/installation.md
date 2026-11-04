@@ -31,7 +31,7 @@ python install.py --client claude --project . --skill scout --server arxiv
 python install.py --client cursor --project . --all
 ```
 
-To also give the project the shared agent rules, add `--rules`, or `"rules": true` to the profile. The installer then copies [templates/AGENTS.md](../templates/AGENTS.md), and for Claude Code also [templates/CLAUDE.md](../templates/CLAUDE.md), which points to it. The rules cover the coordinator workflow, workers and critics on both Claude Code and Codex, the skill for each need, Zotero and Semantic Scholar use, figure checks and the research-idea routine. Fill in the Project section of the copied `AGENTS.md`: the project's name, its GitHub repository and its Zotero collection.
+To also give the project the shared agent rules, add `--rules`, or `"rules": true` to the profile. The installer then copies [templates/AGENTS.md](../templates/AGENTS.md), and for Claude Code also [templates/CLAUDE.md](../templates/CLAUDE.md), which points to it. The rules cover the coordinator workflow, workers and critics on both Claude Code and Codex, budget and load limits, the skill for each need, Zotero and Semantic Scholar use, figure checks and the research-idea routine. Fill in the Project section of the copied `AGENTS.md`: the project's name, its GitHub repository and its Zotero collection.
 
 ```sh
 python install.py --client claude --project . --profile toolkit.json --rules

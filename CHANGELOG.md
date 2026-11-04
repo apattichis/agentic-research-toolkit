@@ -6,7 +6,7 @@ ART follows [semantic versioning](https://semver.org/). While it is early, versi
 
 - 18 skills for Claude Code, Codex and Cursor: a coordinator (`parent`, `router`), eight core research roles, and specialists for ideas, Zotero, figures, diagrams, reports and slides, finding skills, and commits.
 - 3 MCP servers in the catalogue: arXiv, Firecrawl and Playwright.
-- An optional project rulebook (`--rules`): coordinator workflow, workers and critics on both Claude Code and Codex, figure checks, the research-idea routine, and Zotero and Semantic Scholar rules.
+- An optional project rulebook (`--rules`): coordinator workflow, workers and critics on both Claude Code and Codex, budget and load limits (model choice, heavy work one at a time, usage limits), figure checks, the research-idea routine, and Zotero and Semantic Scholar rules.
 - An installer that copies skills, server settings and rules, adds required companion skills automatically, stops instead of overwriting existing changes, and reports its version with `--version`.
 - Setup notes for the Zotero MCP server, including manual deny lists that block selected tools which delete or edit existing items in both clients. The rules forbid removing collection memberships and other destructive actions; adding papers and collection memberships stays allowed.
 - A README overview with figures and the crew, and guides for installation, skills, MCP servers and workflows.

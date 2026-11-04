@@ -30,7 +30,7 @@ With ART's skills and project rules installed in both, and each client's own del
 | --- | --- |
 | **18 skills** | Guides an agent loads when a task needs one, such as how to verify a source, review a draft or make a publication figure. See [Skills](docs/skills.md). |
 | **3 MCP servers** | Connections that give agents real tools: arXiv for papers, Firecrawl for web search and pages, and Playwright for a real browser. See [MCP servers](docs/mcp-servers.md). Zotero can be added once per machine; see [Skills](docs/skills.md). |
-| **One rulebook** | [templates/AGENTS.md](templates/AGENTS.md): the rules both clients follow, covering the coordinator workflow, cross-model critics, figure checks, the idea routine and safety rules. |
+| **One rulebook** | [templates/AGENTS.md](templates/AGENTS.md): the rules both clients follow, covering the coordinator workflow, cross-model critics, budget and load limits, figure checks, the idea routine and safety rules. |
 | **An installer** | [install.py](install.py): copies the skills, server settings and rules into a project for Claude Code, Codex or Cursor, and stops instead of overwriting anything you changed. |
 
 ## Meet the crew
@@ -71,7 +71,7 @@ With ART's skills and project rules installed in both, and each client's own del
 ## How a task runs
 
 1. You ask Claude Code or Codex.
-2. The coordinator plans and delegates, in parallel where the parts are independent.
+2. The coordinator plans and delegates, running independent light work in parallel within the budget and load limits.
 3. Workers run on Claude Code, Codex or both.
 4. A critic on the other model returns PASS, REVISE or BLOCKED. Revisions go back to the author and are checked again.
 5. You get one answer: the result, what is still open, and who did what.
