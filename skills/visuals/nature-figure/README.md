@@ -44,7 +44,7 @@
 |------|------|------------|
 | 多面板论文图 | <a href="assets/gallery/fig1-material-mechanism-rich.png"><img src="assets/gallery/fig1-material-mechanism-rich.png" width="220" alt="Material design and physical validation"></a> | 机制示意、图像面板、定量结果和相关性放在同一证据链中 |
 | 图表类型 atlas | <a href="assets/chart-atlas/atlas-03-heatmaps.png"><img src="assets/chart-atlas/atlas-03-heatmaps.png" width="220" alt="Heatmap atlas"></a> | 热图、注释矩阵、聚类块和发散色标的组合模式 |
-| 第三方 figures4papers 参考 | <a href="assets/figures4papers/figure_VIGIL/figures/comparison_radar.png"><img src="assets/figures4papers/figure_VIGIL/figures/comparison_radar.png" width="220" alt="VIGIL comparison radar"></a> | 仅用于研究 layout、legend 和多指标比较语法；使用前阅读独立版权说明 |
+| 第三方 figures4papers 参考 | Not included in ART (CC BY-NC 4.0); see [assets/figures4papers/README.md](assets/figures4papers/README.md) | 仅用于研究 layout、legend 和多指标比较语法；使用前阅读独立版权说明 |
 
 ## 你需要提供
 
