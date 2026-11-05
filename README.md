@@ -6,7 +6,7 @@
 
 ![Version 0.1.0](https://img.shields.io/badge/version-0.1.0-1f6f78) ![Status: early release](https://img.shields.io/badge/status-early%20release-b7791f) ![License: MIT](https://img.shields.io/badge/license-MIT-2f7a3e) ![Clients: Claude Code and Codex](https://img.shields.io/badge/clients-Claude%20Code%20%7C%20Codex-56625f)
 
-[Quick start](#quick-start) · [What you get](#what-you-get) · [Meet the crew](#meet-the-crew) · [How a task runs](#how-a-task-runs) · [Guides](#guides)
+[Watch the intro](#watch-the-intro) · [Quick start](#quick-start) · [What you get](#what-you-get) · [Meet the crew](#meet-the-crew) · [How a task runs](#how-a-task-runs) · [Guides](#guides)
 
 <img src="docs/how-it-works.png" alt="How ART works: you ask, a coordinator plans and delegates to workers on Claude Code and Codex, a critic on the other model checks the work, and you get one answer" width="100%">
 
@@ -19,6 +19,14 @@ A project template that sets up Claude Code and Codex as one research team. What
 - **Research discipline in the roles.** A scout re-opens every source it cites, the critic tells missing evidence from contradicting evidence, and the coordinator checks that all the evidence it expected came back.
 
 Underneath are skills, which describe how to do a task, and MCP servers, which give agents a browser, academic papers, and web search and extraction.
+
+## Watch the intro
+
+<div align="center">
+<a href="https://youtu.be/O8vLFK47Ols"><img src="docs/intro-video.jpg" alt="Play the one-minute ART intro video on YouTube" width="720"></a>
+<br>
+<sub>One minute: why ART exists, how to set it up, and the crew at work. <a href="https://youtu.be/O8vLFK47Ols">Watch on YouTube</a>.</sub>
+</div>
 
 ## Quick start
 
