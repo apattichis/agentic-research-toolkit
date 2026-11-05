@@ -12,7 +12,13 @@
 
 </div>
 
-A project template for giving AI assistants the skills and tools a project needs. Skills describe how to do a task. MCP servers give an assistant access to a browser, academic papers, or web search and extraction.
+A project template that sets up Claude Code and Codex as one research team. What sets it apart:
+
+- **One rulebook for both clients.** Claude Code and Codex follow the same project rules, and each can hand work to the other.
+- **A coordinator, specialists and a critic on the other model.** The coordinator splits the work among specialist roles, and a critic running on the other model checks important results before you see them.
+- **Research discipline in the roles.** A scout re-opens every source it cites, the critic tells missing evidence from contradicting evidence, and the coordinator checks that all the evidence it expected came back.
+
+Underneath are skills, which describe how to do a task, and MCP servers, which give agents a browser, academic papers, and web search and extraction.
 
 ## Quick start
 
@@ -96,13 +102,20 @@ These are instructions in the project rules (`--rules`), plus the Zotero setting
 
 ART is at version 0.1.0, a pre-release: the first release is planned but not yet tagged. It works and is tested, but expect changes. Next on the list: head-to-head trials for literature search, surveys and experiments; testing debate teams and the Cursor client; and new skills, added only after they hold up in trials. Changes are recorded in [CHANGELOG.md](CHANGELOG.md).
 
+## Works well with
+
+These are companions, not competitors:
+
+- [Codex plugin for Claude Code](https://github.com/openai/codex-plugin-cc) by OpenAI: quick Codex code reviews and delegated tasks from inside Claude Code.
+- [Scientific agent skills](https://github.com/K-Dense-AI/scientific-agent-skills) by K-Dense: a large library of science skills and databases for Claude Code, Codex and other clients. Install it with its own instructions next to ART's skills.
+
 ## Guides
 
 | Guide | What it covers |
 | --- | --- |
 | [Installation](docs/installation.md) | Set up by asking your assistant, start a project, installer options, and how to verify each client. |
 | [Skills](docs/skills.md) | The skill catalogue, sources and licenses, and the Zotero library setup. |
-| [MCP servers](docs/mcp-servers.md) | arXiv, Firecrawl and Playwright, and how to opt in. |
+| [MCP servers](docs/mcp-servers.md) | arXiv, Firecrawl and Playwright, how to opt in, and who sees your data. |
 | [Workflows](docs/workflows.md) | A small research workflow, delegating a research project, agent teams, and why there is one coordinator. |
 | [Changelog](CHANGELOG.md) | Versions and what changed. |
 

@@ -11,3 +11,8 @@ ART follows [semantic versioning](https://semver.org/). While it is early, versi
 - Setup notes for the Zotero MCP server, including manual deny lists that block selected tools which delete or edit existing items in both clients. The rules forbid removing collection memberships and other destructive actions; adding papers and collection memberships stays allowed.
 - A README overview with figures and the crew, and guides for installation, skills, MCP servers and workflows.
 - The nature-figure skill ships without its upstream figures4papers reference examples (CC BY-NC 4.0); a note in their folder says where to get them.
+- The project rules keep portable policy for handoffs between Claude Code and Codex (least permissions first, check what the environment allows, deadlines and failure handling) and move the tested commands into a Client recipes part with PowerShell and Bash examples.
+- The MCP servers guide shows who operates each server and service, what data reaches them, and which ones this checkout can pin.
+- The guides no longer quote trial scores; they note only that small internal trials informed the design, and the rules present trial findings as preliminary observations.
+- The project rules require a backup and a diff of local edits before an installed skill folder is deleted for an update, and the client recipes create `.agent-runs/` first, set the Codex model and effort, and add a Claude research-review variant with read-only arXiv access.
+- The README leads with what sets ART apart and names companion projects that work well with it.

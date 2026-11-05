@@ -20,12 +20,70 @@ The session the user talks to is the coordinator and follows the `parent` skill.
 ## Workers on both platforms
 
 - Claude Code workers: the `Agent` tool. Codex workers: `spawn_agent` (enable Codex's `multi_agent` feature).
-- Claude Code to Codex: pipe the brief on stdin, `$brief | codex exec -C . -s read-only -o .agent-runs/<name>.md -`. Never pass a multi-line brief as an argument: on Windows the Codex launcher runs through cmd.exe, which cuts it at the first newline. Exit code 0 does not mean the task was done, so read the saved answer. If `codex` is not found, reload PATH from the user environment.
-- Codex browser tasks: use `--approve-for-me` in place of `-s` (the two cannot be combined). Codex then runs in its workspace-write sandbox and sends approval requests to its automatic reviewer, so the Playwright tools run unattended. Playwright blocks `file:` URLs, so serve local pages with `python -I -m http.server <port> --bind 127.0.0.1 --directory <folder>`.
-- Codex to Claude Code: pipe the brief from a PowerShell here-string into `claude -p --model opus --effort high --no-session-persistence --tools Read --allowedTools Read --permission-mode dontAsk --strict-mcp-config`. Request escalated permissions (outside the sandbox) on the first attempt: inside the sandbox it has no network and hangs with no output. With escalation it answers in about 10 seconds. Under `--approve-for-me` the automatic reviewer approves; in an interactive session the user approves. It uses the user's Claude plan, so it fails while Claude's usage limit is reached. With `--no-session-persistence` Claude keeps no session file, so save the verdict to `.agent-runs/`.
+- To hand work to the other client, pipe the brief on stdin to its non-interactive mode (see Client recipes) and save the answer in `.agent-runs/`. Never pass a multi-line brief as a command-line argument: some launchers cut it at the first newline.
+- Give each handoff the narrowest permissions the task needs, read-only for research and review. Check what the current environment allows (sandbox, network, approval mode) before asking for anything broader, and ask only when that check shows the task cannot run without it.
+- Set a deadline that fits the task. Exit code 0 does not mean the task was done, so read the saved answer. If a handoff fails, passes its deadline or returns nothing, stop it, record the failure in the handoff record, and retry only once the cause is known and fixed; otherwise wait for the other client or ask the user. Never widen permissions or swap in a same-platform critic on your own.
+- A handoff uses the user's plan on the other client, so it fails while that client's usage limit is reached.
 - Run the critic on the other platform from the author so a different model checks the work (see Budget and load).
 - Writers on different platforms never edit the same files at the same time.
 - Use Claude Code agent teams (teammates messaging each other) only when workers must challenge each other's findings. Confirm with the user before starting one.
+
+### Client recipes
+
+Tested on Windows 11: the PowerShell handoffs including the `Set-Content` step that saves Claude's reply, and in Git Bash the Codex command with explicit model and effort flags and the research-review variant (it reached arXiv). Not tested yet: the Bash recipes on macOS and Linux. Before the first handoff in a session, check that the other client runs (`codex --version`, `claude --version`). Client flags change between versions, so check `codex exec --help` or `claude --help` if one is refused. Each recipe creates `.agent-runs/` first, because the installer does not.
+
+Claude Code to Codex (read-only worker or critic). Replace `<model>` with the strongest Codex model available (see Budget and load):
+
+```powershell
+New-Item -ItemType Directory -Force .agent-runs | Out-Null
+$brief = @'
+<the brief>
+'@
+$brief | codex exec -m <model> -c model_reasoning_effort="high" -C . -s read-only -o .agent-runs/<name>.md -
+```
+
+```bash
+mkdir -p .agent-runs
+codex exec -m <model> -c model_reasoning_effort="high" -C . -s read-only -o .agent-runs/<name>.md - <<'EOF'
+<the brief>
+EOF
+```
+
+Codex to Claude Code, local-file review: Claude may only read project files and loads no MCP servers. With `--no-session-persistence` Claude keeps no session file, so the saved file is the only record.
+
+```powershell
+New-Item -ItemType Directory -Force .agent-runs | Out-Null
+$brief | claude -p --model opus --effort high --no-session-persistence --tools Read --allowedTools Read --permission-mode dontAsk --strict-mcp-config | Set-Content -Encoding utf8 .agent-runs/<name>.md
+```
+
+```bash
+mkdir -p .agent-runs
+claude -p --model opus --effort high --no-session-persistence --tools Read --allowedTools Read --permission-mode dontAsk --strict-mcp-config > .agent-runs/<name>.md <<'EOF'
+<the brief>
+EOF
+```
+
+Codex to Claude Code, research review: for a critic that must run arXiv searches, such as the novelty check in Research ideas. It loads only the arXiv server and allows only its read-only tools besides `Read`.
+
+```powershell
+New-Item -ItemType Directory -Force .agent-runs | Out-Null
+[IO.File]::WriteAllText("$PWD/.agent-runs/arxiv-mcp.json", '{"mcpServers":{"arxiv":{"type":"http","url":"https://arxiv.caseyjhand.com/mcp"}}}')
+$brief | claude -p --model opus --effort high --no-session-persistence --tools Read --mcp-config .agent-runs/arxiv-mcp.json --strict-mcp-config --allowedTools "Read,mcp__arxiv" --permission-mode dontAsk | Set-Content -Encoding utf8 .agent-runs/<name>.md
+```
+
+```bash
+mkdir -p .agent-runs
+printf '%s' '{"mcpServers":{"arxiv":{"type":"http","url":"https://arxiv.caseyjhand.com/mcp"}}}' > .agent-runs/arxiv-mcp.json
+claude -p --model opus --effort high --no-session-persistence --tools Read --mcp-config .agent-runs/arxiv-mcp.json --strict-mcp-config --allowedTools "Read,mcp__arxiv" --permission-mode dontAsk > .agent-runs/<name>.md <<'EOF'
+<the brief>
+EOF
+```
+
+Notes from the tested setup:
+
+- In Codex's default sandbox, `claude -p` had no network access and hung with no output. It worked when Codex ran that one command outside the sandbox with approval: from the user in an interactive session, or from Codex's automatic reviewer under `--approve-for-me`. If your sandbox allows network access, try it there first.
+- Codex browser tasks: use `--approve-for-me` in place of `-s` (the two cannot be combined). Codex then runs in its workspace-write sandbox and sends approval requests to its automatic reviewer, so the Playwright tools run unattended. Playwright blocks `file:` URLs, so serve local pages with `python -I -m http.server <port> --bind 127.0.0.1 --directory <folder>`.
+- On Windows, `codex` installed through a Node version manager can be a `.cmd` launcher that runs through cmd.exe, which is why the brief goes on stdin. If a client installed during the session is not found, reload PATH from the user environment.
 
 ## Budget and load
 
@@ -66,7 +124,7 @@ Zotero (installed once per machine for the user's account; follow the `zotero-li
 
 Semantic Scholar: the user's key is in the `S2_API_KEY` environment variable (send it as the `x-api-key` header, never print it). The limit is one request per second for the whole key, across all endpoints and all agents at once, so keep requests at least 1.1 seconds apart and let only one worker use Semantic Scholar at a time; parallel workers use arXiv instead. On HTTP 429, wait and retry with exponential backoff.
 
-To update a skill, delete its folder in both skill directories and rerun the toolkit installer for each client with `--profile toolkit.json`. The installer stops on any skill or server that differs instead of overwriting it.
+To update a skill, never delete an installed skill folder before keeping its local edits, such as a style guide filled in during diagram-design onboarding. Follow "Update an installation" in ART's `docs/installation.md`: copy the installed skill folders to a backup outside the project, compare each with the new toolkit copy (`git diff --no-index <installed folder> <toolkit folder>`), and show the user any local edits. Only then delete the folder in both skill directories, rerun the toolkit installer for each client with `--profile toolkit.json`, and reapply the edits the user wants to keep. The installer stops on any skill or server that differs instead of overwriting it.
 
 ### Third-party skills
 
@@ -74,10 +132,10 @@ Each is copied from upstream at a pinned commit, with the upstream repository's 
 
 | Skill | Source and commit | License | Notes |
 | --- | --- | --- | --- |
-| `find-skills` | vercel-labs/skills `7a5e920` | MIT | Searches skills.sh with `npx -y skills@1.7.6 find <query>`. Its step 6 installs globally without confirmation (`npx skills add <package> -g -y`); override it: show the user each candidate's source, install count and stars, install only after their yes, put the skill in both project skill folders, and record its source. |
-| `nature-figure`, `nature-shared` | yuan1z0825/nature-skills `69817e4` | Apache-2.0 | Use the Python route (matplotlib, numpy and PyMuPDF). Keep its saved preference inside the project, not under `~/.config`. Run its audit scripts, but they check layout, not meaning, so a critic still reads the figure. Its collision audit can fail a clean figure when the PDF groups several labels into one text object; confirm against the rendered PNG and record the reconciliation. Codex does not list `nature-shared` at startup; `nature-figure` still reads its files. ART leaves out the upstream figures4papers reference examples (CC BY-NC 4.0); `assets/figures4papers/README.md` says where to get them. |
-| `diagram-design` | cathrynlavery/diagram-design `3eb03b8` | MIT | Its PNG export script needs Python Playwright. Without it, capture PNGs with the Playwright MCP browser from a local `http.server`. Use system fonts. |
-| `research-ideation` | evoscientist/evoskills `4889c22` | Apache-2.0 | Use only as one worker in the "Research ideas" routine. Its SKILL.md requires the `paper-navigator` scripts for every search, which are not installed; override that: search with the arXiv tools, skip Step 0 and the evo-memory update, keep refinement and ranking condensed, and stop before user selection and proposal expansion. Never write to `/memory` at the drive root. |
+| `find-skills` | vercel-labs/skills `7a5e920` | MIT | Searches skills.sh with `npx -y skills@1.7.6 find <query>`. ART's copy carries its own adaptation: pinned CLI, shows source, install count and stars, installs only after the user agrees, into both project skill folders, never globally. See its `ADAPTATIONS.md`. |
+| `nature-figure`, `nature-shared` | yuan1z0825/nature-skills `69817e4` | Apache-2.0 | Use the Python route (matplotlib, numpy and PyMuPDF). Keep its saved preference inside the project, not under `~/.config`. Run its audit scripts, but they check layout, not meaning, so a critic still reads the figure. Its collision audit can fail a clean figure when the PDF groups several labels into one text object; confirm against the rendered PNG and record the reconciliation. Codex does not list `nature-shared` at startup; `nature-figure` still reads its files. ART leaves out the upstream figures4papers reference examples (CC BY-NC 4.0); `assets/figures4papers/README.md` says where to get them. ART also disables the schematic script's download of image URLs from the API response; see its `ADAPTATIONS.md`. |
+| `diagram-design` | cathrynlavery/diagram-design `3eb03b8` | MIT | Its PNG export script needs Python Playwright. Without it, capture PNGs with the Playwright MCP browser from a local `http.server`. Use system fonts. ART removes five directly fetched logos with unclear terms; see its `ADAPTATIONS.md`. |
+| `research-ideation` | evoscientist/evoskills `4889c22` | Apache-2.0 | Use only as one worker in the "Research ideas" routine. ART's copy carries its adaptation at the top of SKILL.md: arXiv tools instead of `paper-navigator`, no evo-memory, outputs inside the project, condensed ranking, stops before user selection and proposal expansion. See its `ADAPTATIONS.md`. |
 | `quarto-authoring` | posit-dev/skills `45685aa` | MIT | Needs Quarto on PATH. Render PDF through Typst (bundled with Quarto). Build `references.bib` from arXiv tool metadata or the project's Better BibTeX export, and use the IEEE CSL from citation-style-language/styles. |
 
 ## Figures and documents
@@ -92,9 +150,9 @@ Standing rules: label synthetic numbers "Illustrative synthetic data" in the fig
 
 ## Research ideas
 
-No ideation skill replaces this routine: in blind trials, ideation skills did not beat independent workers plus a blind critic on average, and every method converged on the same few ideas. Run it like this:
+Use this routine rather than a single ideation skill. In a few small blind trials on one problem, a preliminary observation and not a benchmark, the ideation skills tried did not score clearly above independent workers plus a blind critic on average, and every method converged on the same few ideas. Run it like this:
 
-1. Brief three to five idea workers independently, across both platforms, with the same problem, constraints and arXiv budget. Give each a different starting lens: the users and their setting, a case where current methods break, or a cost the field ignores. Have one worker follow `research-ideation` with the override above: its runs averaged the same as the others but reached higher peaks, which helps when only the best idea is kept. Each returns three ideas with the problem and its tension, why now, the real-world side, the core insight, a first experiment, the closest prior work by verified arXiv ID, and the biggest risk.
+1. Brief three to five idea workers independently, across both platforms, with the same problem, constraints and arXiv budget. Give each a different starting lens: the users and their setting, a case where current methods break, or a cost the field ignores. Have one worker follow `research-ideation` with the override above: in those trials its runs averaged about the same as the others but reached higher peaks, which may help when only the best idea is kept. Each returns three ideas with the problem and its tension, why now, the real-world side, the core insight, a first experiment, the closest prior work by verified arXiv ID, and the biggest risk.
 2. Blind critics read only the idea files: one critic on the other platform when all workers ran on one platform; when they ran on both, one critic per platform scores the sets written on the other platform, with the same rubric, and the scores are combined. It scores each idea from 1 to 5 on novelty, real-world side, framing, feasibility and specificity, verifies sampled citations, runs one arXiv novelty search per set's best idea, and names ideas that overlap.
 3. Show the user the top ideas with the critic's objections. The chosen idea goes to `claims`.
 
