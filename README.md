@@ -4,7 +4,7 @@
 
 **Your AI research team, set up in minutes.**
 
-![Version 0.1.0](https://img.shields.io/badge/version-0.1.0-1f6f78) ![Status: pre-release](https://img.shields.io/badge/status-pre--release-b7791f) ![License: MIT](https://img.shields.io/badge/license-MIT-2f7a3e) ![Clients: Claude Code and Codex](https://img.shields.io/badge/clients-Claude%20Code%20%7C%20Codex-56625f)
+![Version 0.1.0](https://img.shields.io/badge/version-0.1.0-1f6f78) ![Status: early release](https://img.shields.io/badge/status-early%20release-b7791f) ![License: MIT](https://img.shields.io/badge/license-MIT-2f7a3e) ![Clients: Claude Code and Codex](https://img.shields.io/badge/clients-Claude%20Code%20%7C%20Codex-56625f)
 
 [Quick start](#quick-start) · [What you get](#what-you-get) · [Meet the crew](#meet-the-crew) · [How a task runs](#how-a-task-runs) · [Guides](#guides)
 
@@ -100,7 +100,7 @@ These are instructions in the project rules (`--rules`), plus the Zotero setting
 
 ## Status and roadmap
 
-ART is at version 0.1.0, a pre-release: the first release is planned but not yet tagged. It works and is tested, but expect changes. Next on the list: head-to-head trials for literature search, surveys and experiments; testing debate teams and the Cursor client; and new skills, added only after they hold up in trials. Changes are recorded in [CHANGELOG.md](CHANGELOG.md).
+ART is at version 0.1.0, its first release. It works and is tested, but it is early: expect changes. Next on the list: head-to-head trials for literature search, surveys and experiments; testing debate teams and the Cursor client; and new skills, added only after they hold up in trials. Changes are recorded in [CHANGELOG.md](CHANGELOG.md).
 
 ## Works well with
 

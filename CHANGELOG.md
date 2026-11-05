@@ -2,7 +2,7 @@
 
 ART follows [semantic versioning](https://semver.org/). While it is early, versions stay at 0.x: a new minor version (0.2.0) adds skills or features, and a patch version (0.1.1) fixes them. Releases will be tagged on GitHub as `vX.Y.Z`. `python install.py --version` prints the version of the toolkit checkout.
 
-## 0.1.0 (planned first release)
+## 0.1.0 (2026-11-05)
 
 - 18 skills for Claude Code, Codex and Cursor: a coordinator (`parent`, `router`), eight core research roles, and specialists for ideas, Zotero, figures, diagrams, reports and slides, finding skills, and commits.
 - 3 MCP servers in the catalogue: arXiv, Firecrawl and Playwright.
