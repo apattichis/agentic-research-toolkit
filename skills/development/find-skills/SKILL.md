@@ -3,6 +3,18 @@ name: find-skills
 description: Helps users discover and install agent skills when they ask questions like "how do I do X", "find a skill for X", "is there a skill that can...", or express interest in extending capabilities. This skill should be used when the user is looking for functionality that might exist as an installable skill.
 ---
 
+## ART adaptation (read first)
+
+This copy of Vercel's `find-skills` skill is adapted for ART, the Agentic Research Toolkit. The rules in this section override the upstream text below wherever the two conflict, in particular the key commands list and Steps 3, 5 and 6. The upstream text is kept unchanged below for attribution (MIT, see `LICENSE`); `ADAPTATIONS.md` lists every change.
+
+1. **Use the pinned CLI.** Search with `npx -y skills@1.7.6 find <query>`. Use `skills@1.7.6` in every `skills` command, never the unpinned `npx skills ...` forms shown below. `npx -y` only lets npx fetch that pinned package; never pass the skills CLI's own `-y`, which skips its confirmation prompts.
+2. **Show candidates, then ask.** For each candidate, show the user its name and what it does, its source repository, its install count and the GitHub stars of its source (check them as Step 4 describes), and its skills.sh link. Install nothing until the user agrees to that specific skill.
+3. **Install into the project, never globally.** Never use `-g` or install at user level. After the user agrees, add the skill at project scope: run `npx -y skills@1.7.6 add <owner/repo@skill>` from the project root without `-g`, or copy the skill's folder from its source repository. Either way it must end up in both project skill folders, `.claude/skills/<name>/` for Claude Code and `.agents/skills/<name>/` for Codex; check both and copy it across if only one was filled. If the CLI asks questions the shell cannot answer, stop and give the user the command to run themselves.
+4. **Record the source.** Tell the user the source repository and the commit or version installed, so it can be recorded with the project's other third-party skills (in an ART project, the third-party skills table in `AGENTS.md`).
+5. **Do not run `skills update`.** It changes every installed skill. Updating a skill is the user's decision.
+
+---
+
 # Find Skills
 
 This skill helps you discover and install skills from the open agent skills ecosystem.

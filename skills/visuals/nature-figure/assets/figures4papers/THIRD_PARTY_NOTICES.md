@@ -18,3 +18,7 @@ and obtain permission from the relevant rights holder when required.
 
 If the upstream project later publishes a license or the maintainers obtain
 written permission, update this notice with the exact terms and date.
+
+## Status in ART (4 November 2026)
+
+The upstream figures4papers repository now carries a Creative Commons Attribution-NonCommercial 4.0 license. Because ART is MIT licensed and may be used commercially, ART does not include these files; see README.md in this folder for where to get them.

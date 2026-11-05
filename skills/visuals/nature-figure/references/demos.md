@@ -1,13 +1,14 @@
 # figures4papers Reference Index
 
+> In ART, the files this index points to are not included: they are licensed CC BY-NC 4.0 by their authors. See `../assets/figures4papers/README.md` for where to get them. The index below is kept so the examples can be found upstream.
+
 Use this file when a user asks for a `figures4papers` look, cites the older
 `scientific-figure-making` skill, or needs a concrete Python/matplotlib reference.
 
-The retained third-party files live under `../assets/figures4papers/`. Before
-opening or adapting them, read
-`../assets/figures4papers/THIRD_PARTY_NOTICES.md`. These materials are not
-automatically covered by the root MIT License, and their inclusion does not grant
-additional reuse rights.
+Upstream, these third-party files live under `assets/figures4papers/` of the
+nature-figure skill. In ART, get them separately (see the note above) and read
+their license and `../assets/figures4papers/THIRD_PARTY_NOTICES.md` before
+opening or adapting them. They are not covered by ART's MIT License.
 
 ## Use boundary
 
@@ -21,9 +22,11 @@ additional reuse rights.
 5. Preserve the editable SVG/PDF/TIFF and source-data rules from `api.md` and
    `qa-contract.md`.
 
-## Retained project map
+## Upstream project map
 
-| Project | Open when | Local references |
+Paths below are relative to a separate checkout of the upstream examples, not to files shipped with ART.
+
+| Project | Open when | Upstream path |
 |---------|-----------|------------------|
 | `figure_ImmunoStruct` | Method-comparison and ablation bars | `../assets/figures4papers/figure_ImmunoStruct/` |
 | `figure_CellSpliceNet` | Compact benchmark and cross-species bars | `../assets/figures4papers/figure_CellSpliceNet/` |

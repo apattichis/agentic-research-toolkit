@@ -44,7 +44,7 @@ Start with a figure contract rather than a template:
 |-----------|---------|------------------|
 | Multi-panel manuscript figure | <a href="assets/gallery/fig1-material-mechanism-rich.png"><img src="assets/gallery/fig1-material-mechanism-rich.png" width="220" alt="Material design and physical validation"></a> | Mechanism schematic, image panels, quantitative results, and correlation in one evidence chain |
 | Chart-type atlas | <a href="assets/chart-atlas/atlas-03-heatmaps.png"><img src="assets/chart-atlas/atlas-03-heatmaps.png" width="220" alt="Heatmap atlas"></a> | Heatmaps, annotation matrices, cluster blocks, and diverging color scales |
-| Third-party figures4papers reference | <a href="assets/figures4papers/figure_VIGIL/figures/comparison_radar.png"><img src="assets/figures4papers/figure_VIGIL/figures/comparison_radar.png" width="220" alt="VIGIL comparison radar"></a> | Study layout, legend, and multi-metric comparison grammar only; read the separate copyright notice before use |
+| Third-party figures4papers reference | Not included in ART (CC BY-NC 4.0); see [assets/figures4papers/README.md](assets/figures4papers/README.md) | Study layout, legend, and multi-metric comparison grammar only; read the separate copyright notice before use |
 
 ## What You Need To Provide
 

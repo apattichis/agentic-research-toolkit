@@ -1,11 +1,25 @@
 ---
 name: research-ideation
-description: "End-to-end research ideation pipeline: literature grounding → multi-track idea generation (3 personas: innovator/pragmatist/critic) → iterative refinement → ELO tournament ranking → update evo-memory (IDE) → user selects direction → expand into manuscript-quality proposal. Use when: user wants to find a research direction, brainstorm ideas, evaluate idea novelty, design a novel solution, rank/compare research ideas, or generate a research proposal. Do NOT use for finding/searching/reading papers (use paper-navigator), literature survey reports (use research-survey), or planning a paper (use paper-planning)."
+description: "Research ideation worker, adapted for ART from EvoScientist: literature grounding with the arXiv tools → multi-track idea generation (3 personas: innovator/pragmatist/critic) → condensed refinement → ELO tournament ranking → ranked top ideas returned to whoever briefed it. Use when: a coordinator assigns an ideation worker, or the user wants to brainstorm research ideas, evaluate idea novelty, or rank/compare research ideas. Do NOT use for finding or verifying papers (use scout), related-work maps (use cartographer), or turning a chosen idea into a hypothesis (use claims). The ART adaptation section at the top of SKILL.md overrides the upstream steps it names."
 allowed-tools: "write_file edit_file read_file think_tool execute"
 metadata:
   author: EvoScientist
   version: '2.1.2'
   tags: [core, research, ideation, tournament, proposal]
+---
+
+## ART adaptation (read first)
+
+This copy of EvoScientist's `research-ideation` skill is adapted for ART, the Agentic Research Toolkit. The rules in this section override the upstream text below wherever the two conflict. The upstream text is kept unchanged below for attribution (Apache-2.0, see `LICENSE`); `ADAPTATIONS.md` lists every change.
+
+1. **Search with the arXiv tools.** `paper-navigator` and `evo-memory` are not bundled. Wherever the upstream text requires `paper-navigator` or its scripts (Steps 2, 3 and 4, and the Dependency section), find, check and read papers with the arXiv MCP tools (`arxiv_search_papers`, `arxiv_get_metadata`, `arxiv_read_paper`) instead. The upstream rule against generic web search still holds for paper discovery. Ground every idea in real papers and cite each one by a verified arXiv ID. Collect as many papers as the brief's search budget allows; the upstream target of 30 to 50 applies only when no budget is given.
+2. **Skip Step 0 and Step 6.** Do not read or write evo-memory (`/memory/ideation-memory.md`) and do not trigger the IDE protocol. Leave the evo-memory fields in the `assets/` templates out. Never write to `/memory` or to any other path at the drive or filesystem root.
+3. **Write outputs inside the project.** Save each file at the path the brief names, normally under `.agent-runs/` in the project. With no path given, use `.agent-runs/research-ideation/`. Root paths in the upstream text, such as `/direction-summary.md` and `/research-proposal.md`, mean that folder.
+4. **Keep refinement and ranking condensed.** Run Step 4 within the brief's budget, with fewer iterations per track when the budget is tight, and record Step 5 as a short ranking table with one line of reasoning per match instead of full transcripts.
+5. **Stop before user selection and proposal expansion.** After Step 5, return the ranked ideas (Parts 1 and 2) to whoever briefed you and stop. Skip Part 3 (the selection prompt), Step 7 (proposal expansion) and Step 8. In ART the coordinator shows the top ideas with a critic's objections, and the user's chosen idea goes to the `claims` skill. If the user ran this skill directly, present the ranked ideas, stop, and offer to take a chosen idea to `claims`.
+6. **Return what the brief asks for.** ART's research-ideas routine asks, for each idea, for the problem and its tension, why now, the real-world side, the core insight, a first experiment, the closest prior work by verified arXiv ID, and the biggest risk.
+7. **Skills that ART does not bundle.** Ignore handoffs to `paper-navigator`, `evo-memory`, `research-survey`, `paper-planning`, `experiment-pipeline` and `experiment-craft`. In ART, `scout` finds and verifies papers, `cartographer` maps related work, `claims` turns a chosen idea into a testable hypothesis and `experimenter` designs a first test.
+
 ---
 
 # Research Ideation

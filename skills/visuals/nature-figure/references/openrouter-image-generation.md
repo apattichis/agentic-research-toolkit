@@ -108,6 +108,8 @@ python skills/nature-figure/scripts/generate_openrouter_schematic.py \
 
 The script saves generated files plus `request_metadata.json` in the output directory.
 
+ART adaptation: the script saves only image bytes returned in the response (`data[].b64_json`). It never downloads a `data[].url`; it records any returned URL under `unfetched_image_urls` in the metadata file and prints it, and it exits with an error when no image bytes came back. Open such a URL yourself only if you trust it. See `ADAPTATIONS.md` in the skill folder.
+
 Use another OpenAI-compatible images endpoint (`--api-url`, or `SCHEMATIC_IMAGE_API_URL`) when the user already pays for a gateway instead of OpenRouter. The response shape (`data[].b64_json` or `data[].url`) is the same, so nothing else changes; the endpoint actually called is recorded in `request_metadata.json`. Example with OrcaRouter:
 
 ```bash
