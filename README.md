@@ -6,7 +6,7 @@
 
 ![Version 0.1.0](https://img.shields.io/badge/version-0.1.0-1f6f78) ![Status: pre-release](https://img.shields.io/badge/status-pre--release-b7791f) ![License: MIT](https://img.shields.io/badge/license-MIT-2f7a3e) ![Clients: Claude Code and Codex](https://img.shields.io/badge/clients-Claude%20Code%20%7C%20Codex-56625f)
 
-[Quick start](#quick-start) · [What you get](#what-you-get) · [Meet the crew](#meet-the-crew) · [How a task runs](#how-a-task-runs) · [Guides](#guides) · [Evidence](docs/evidence.md)
+[Quick start](#quick-start) · [What you get](#what-you-get) · [Meet the crew](#meet-the-crew) · [How a task runs](#how-a-task-runs) · [Guides](#guides)
 
 <img src="docs/how-it-works.png" alt="How ART works: you ask, a coordinator plans and delegates to workers on Claude Code and Codex, a critic on the other model checks the work, and you get one answer" width="100%">
 
@@ -86,10 +86,6 @@ These are instructions in the project rules (`--rules`), plus the Zotero setting
 - With that Zotero setup, selected tools that delete or edit existing items are blocked in both clients. The rules forbid using the remaining collection tool to remove a paper from a collection, and forbid other destructive actions. Agents can add papers and fill the project's collection.
 - Findings need evidence, and important work is checked by a critic that did not write it. The rules ask for this check; they cannot guarantee that every mistake is caught.
 
-## Tested
-
-Four skill choices were tested head-to-head against two or three alternatives each, with blind critics on the other platform: research ideation, publication figures, paper review and slides. No challenger clearly beat the chosen tools. Both clients passed the same checks in a working project, and on the test machine fresh sessions of each set ART up within minutes from the repository link and a one-line request. The results are in [docs/evidence.md](docs/evidence.md).
-
 ## Limits
 
 - **Cross-model review needs both clients.** Claude Code and Codex must both be installed and signed in, each on its own plan. With only one, the cross-model checks cannot run.
@@ -108,7 +104,6 @@ ART is at version 0.1.0, a pre-release: the first release is planned but not yet
 | [Skills](docs/skills.md) | The skill catalogue, sources and licenses, and the Zotero library setup. |
 | [MCP servers](docs/mcp-servers.md) | arXiv, Firecrawl and Playwright, and how to opt in. |
 | [Workflows](docs/workflows.md) | A small research workflow, delegating a research project, agent teams, and why there is one coordinator. |
-| [Evidence](docs/evidence.md) | The skill trials and checks behind the choices in ART. |
 | [Changelog](CHANGELOG.md) | Versions and what changed. |
 
 ## License and trademarks
