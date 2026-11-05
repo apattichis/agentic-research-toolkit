@@ -12,7 +12,7 @@ The user's Zotero library is shared by all their projects. Treat everything alre
 - The Zotero MCP server (`zotero-mcp-server`) is installed once for the user's account and registered in each client, with `ZOTERO_LOCAL=true` so reads come straight from the local Zotero database.
 - Writes go through the Zotero web API, so the user keeps a key in the `ZOTERO_API_KEY` and `ZOTERO_LIBRARY_ID` environment variables. Never print or copy their values.
 - Tools that delete or change existing content are blocked in the client settings. If a tool call is refused, do not look for another way to make the same change.
-- The project names its collection in its `AGENTS.md`, for example `Zotero collection: Edge LLMs`. If none is named, ask the user before creating one.
+- The project names its collection in its `AGENTS.md`, for example `Zotero collection: Thesis reading`. If none is named, ask the user before creating one.
 
 ## Rules
 
@@ -31,7 +31,7 @@ The user's Zotero library is shared by all their projects. Treat everything alre
 
 ## Known behaviour
 
-- Pass the collection by name, for example `"Edge LLMs"`, when you file a paper right after creating the collection. A just-created key can fail to resolve in the same session.
+- Pass the collection by name, for example `"Thesis reading"`, when you file a paper right after creating the collection. A just-created key can fail to resolve in the same session.
 - Local reads see web writes only after the Zotero desktop app syncs, so a paper you just added may not appear in a local search for a minute. Confirm a write from the tool's own result.
 - In Codex, every Zotero call needs approval. Delegated Codex runs that use Zotero need `--approve-for-me`.
 
