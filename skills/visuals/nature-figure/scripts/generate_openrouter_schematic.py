@@ -5,14 +5,12 @@ from __future__ import annotations
 
 import argparse
 import base64
-import ipaddress
 import json
 import mimetypes
 import os
 import sys
 import time
 import urllib.error
-import urllib.parse
 import urllib.request
 from pathlib import Path
 from typing import Any
@@ -114,18 +112,17 @@ def build_payload(args: argparse.Namespace) -> dict[str, Any]:
     return payload
 
 
-def _require_downloadable_url(url: str, source: str) -> None:
-    """Response-supplied URLs must be plain http(s) to non-local hosts before download."""
-    parsed = urllib.parse.urlparse(url)
-    if parsed.scheme not in {"http", "https"}:
-        raise SystemExit(f"Refusing non-http(s) {source}: {url}")
-    hostname = (parsed.hostname or "").lower()
-    try:
-        ip = ipaddress.ip_address(hostname)
-    except ValueError:
-        ip = None
-    if hostname == "localhost" or (ip is not None and (ip.is_private or ip.is_loopback or ip.is_link_local)):
-        raise SystemExit(f"Refusing local {source} host: {url}")
+# ART adaptation: this script never downloads URLs found in the API response.
+# A hostile or compromised response could otherwise point the download at local
+# or internal services (hostnames resolving to private addresses, redirects).
+# Only image bytes returned in the response (b64_json) are saved; any returned
+# URL is recorded in the metadata file and printed for the user to open
+# themselves. See ADAPTATIONS.md in the skill folder.
+URL_NOT_FETCHED_NOTE = (
+    "ART's copy of this script does not download image URLs from the API response. "
+    "Open the URL yourself if you trust it, or use a model or endpoint that returns "
+    "base64 image data (b64_json)."
+)
 
 
 def media_extension(media_type: str | None, output_format: str | None) -> str:
@@ -189,6 +186,7 @@ def save_outputs(response: dict[str, Any], payload: dict[str, Any], args: argpar
     basename = args.basename or time.strftime("openrouter_schematic_%Y%m%d_%H%M%S")
 
     saved: list[str] = []
+    unfetched: list[dict[str, Any]] = []
     for index, item in enumerate(response.get("data", []), start=1):
         media_type = item.get("media_type")
         ext = media_extension(media_type, args.output_format)
@@ -199,13 +197,8 @@ def save_outputs(response: dict[str, Any], payload: dict[str, Any], args: argpar
             outpath.write_bytes(decode_b64_image(item["b64_json"]))
             saved.append(str(outpath))
         elif "url" in item:
-            _require_downloadable_url(item["url"], f"image URL in response item {index}")
-            try:
-                with urllib.request.urlopen(item["url"], timeout=args.timeout) as image_response:
-                    outpath.write_bytes(image_response.read())
-            except OSError as exc:  # URLError, HTTPError and timeouts are all OSError subclasses
-                raise SystemExit(f"Image download failed for response item {index} ({item['url']}): {exc}") from exc
-            saved.append(str(outpath))
+            # ART adaptation: record the URL, never fetch it (see URL_NOT_FETCHED_NOTE).
+            unfetched.append({"item": index, "url": str(item["url"])})
         else:
             raise SystemExit(f"No image bytes or URL in response item {index}: {item}")
 
@@ -216,6 +209,8 @@ def save_outputs(response: dict[str, Any], payload: dict[str, Any], args: argpar
         "created": response.get("created"),
         "saved_files": saved,
     }
+    if unfetched:
+        metadata["unfetched_image_urls"] = unfetched
     metadata_path = outdir / f"{basename}_request_metadata.json"
     metadata_path.write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")
 
@@ -223,6 +218,13 @@ def save_outputs(response: dict[str, Any], payload: dict[str, Any], args: argpar
     for path in saved:
         print(f"  {path}")
     print(f"  {metadata_path}")
+    if unfetched:
+        print("Not downloaded (image URLs returned by the API):")
+        for entry in unfetched:
+            print(f"  item {entry['item']}: {entry['url']}")
+        print(URL_NOT_FETCHED_NOTE)
+        if not saved:
+            raise SystemExit("No image bytes were returned, so no image was saved. " + URL_NOT_FETCHED_NOTE)
 
 
 def parse_args() -> argparse.Namespace:

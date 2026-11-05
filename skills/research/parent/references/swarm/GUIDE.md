@@ -4,6 +4,8 @@ description: "Fan out N parallel workers, drain them, and return one report. Use
 disable-model-invocation: true
 ---
 
+> **ART note.** ART bundles this pstack guide (MIT, see `LICENSE`) as background for the `parent` skill and added this note above the upstream text. Parts of it name infrastructure ART does not ship, and those parts do not apply: the pstack settings files and their `swarm workers` line, the `grok-4.7-xhigh-fast` default, the **poteto-mode** skill, and Cursor-only `Task` parameters such as `environment: "cloud"` and `cloud_base_branch`. In ART, worker models, reasoning effort and how many workers run at once come from the project rulebook (`AGENTS.md`) and the `parent` skill; where they say nothing, use the client's default model. The frame, fan-out, aggregate and report phases apply as written. See `ADAPTATIONS.md`.
+
 # Swarm
 
 ## Start
