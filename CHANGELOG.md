@@ -2,7 +2,7 @@
 
 ART follows [semantic versioning](https://semver.org/). While it is early, versions stay at 0.x: a new minor version (0.2.0) adds skills or features, and a patch version (0.1.1) fixes them. Releases will be tagged on GitHub as `vX.Y.Z`. `python install.py --version` prints the version of the toolkit checkout.
 
-## Unreleased
+## 0.1.1 (2026-11-20)
 
 - The project rulebook template (`templates/AGENTS.md`) now says which model to use for what, for Claude Code (`opus`, `fable`, `sonnet`, `haiku`) and Codex (`gpt-6.2-astra`, `gpt-6.2-sol`, `gpt-6.1-terra`, `gpt-6-luna`), checked on 2026-11-20.
 

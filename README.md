@@ -4,7 +4,7 @@
 
 **Your AI research team, set up in minutes.**
 
-![Version 0.1.0](https://img.shields.io/badge/version-0.1.0-1f6f78) ![Status: early release](https://img.shields.io/badge/status-early%20release-b7791f) ![License: MIT](https://img.shields.io/badge/license-MIT-2f7a3e) ![Clients: Claude Code and Codex](https://img.shields.io/badge/clients-Claude%20Code%20%7C%20Codex-56625f)
+![Version 0.1.1](https://img.shields.io/badge/version-0.1.1-1f6f78) ![Status: early release](https://img.shields.io/badge/status-early%20release-b7791f) ![License: MIT](https://img.shields.io/badge/license-MIT-2f7a3e) ![Clients: Claude Code and Codex](https://img.shields.io/badge/clients-Claude%20Code%20%7C%20Codex-56625f)
 
 [Watch the intro](#watch-the-intro) · [Quick start](#quick-start) · [What you get](#what-you-get) · [Meet the crew](#meet-the-crew) · [How a task runs](#how-a-task-runs) · [Guides](#guides)
 

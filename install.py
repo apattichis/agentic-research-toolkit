@@ -11,7 +11,7 @@ import sys
 from uuid import uuid4
 import tomllib
 
-VERSION = "0.1.0"
+VERSION = "0.1.1"
 ROOT = Path(__file__).resolve().parent
 SKILLS = {p.parent.name: p.parent for p in sorted(ROOT.glob("skills/*/*/SKILL.md"))}
 SERVERS = json.loads((ROOT / "mcp/servers.json").read_text())["mcpServers"]
